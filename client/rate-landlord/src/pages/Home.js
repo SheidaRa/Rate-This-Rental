@@ -13,12 +13,9 @@ const Home = () => {
 
   const [results, setResults] = useState([]);
 
-  return (
+  return 
 
-<div className="search-bar-container">
-        <SearchBar setResults={setResults} />
-        {results && results.length > 0 && <SearchResultsList results={results} />}
-      </div>  )
+
 }
 
 export default Home

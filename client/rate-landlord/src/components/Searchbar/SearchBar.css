@@ -1,4 +1,8 @@
-.search-bar-container {
+.search-bar-container{
+  background-color: #000;
+}
+
+.search-bar {
   padding-top: 20vh;
   width: 40%;
   margin: auto;

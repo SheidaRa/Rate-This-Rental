@@ -1,58 +1,60 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import './Navbar.css'
 
-import { NavLink } from "react-router-dom";
-import { GiRocketThruster } from "react-icons/gi";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const [click, setClick] = useState(false)
+  const [click, setClick] = useState(false);
 
-    const handleClick = () => setClick(!click)
-    const closeMobileMenu = () => setClick(false)
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
 
   return (
     <>
-    <nav className='navbar'>
-        <div className='navbar-container container'>
-            <Link to='/' className="navbar-logo">
-                <GiRocketThruster className="navbar-icon" onClick={closeMobileMenu}/>
-                Rate your Landlord
-            </Link>
-            <div className='menu-icon'onClick={handleClick}>
-                {click ? <FaTimes /> : <FaBars />}
-            </div>
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li className='nav-item'>
+      <nav className='navbar navbar-expand-lg '>
+        <div className='container'>
+          <Link to='/' className='navbar-brand'>
+            Rate your Landlord
+          </Link>
+          <button
+            className='navbar-toggler'
+            type='button'
+            onClick={handleClick}
+          >
+            {click ? <FaTimes /> : <FaBars />}
+          </button>
+          <div className={click ? 'collapse navbar-collapse' : 'navbar-collapse'}>
+            <ul className='navbar-nav ml-auto'>
+              <li className='nav-item'>
                 <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    "nav-links" + (isActive ? " activated" : "")
-                  }
+                  exact
+                  to='/'
+                  className='nav-link'
+                  activeClassName='active'
                   onClick={closeMobileMenu}
                 >
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className='nav-item'>
                 <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    "nav-links" + (isActive ? " activated" : "")
-                  }
+                  exact
+                  to='/about'
+                  className='nav-link'
+                  activeClassName='active'
                   onClick={closeMobileMenu}
                 >
                   About
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className='nav-item'>
                 <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    "nav-links" + (isActive ? " activated" : "")
-                  }
+                  exact
+                  to='/contact'
+                  className='nav-link'
+                  activeClassName='active'
                   onClick={closeMobileMenu}
                 >
                   Contact
@@ -60,9 +62,148 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-        </nav>
+        </div>
+      </nav>
     </>
   );
-}
+};
 
 export default Navbar;
+
+
+
+
+// import React, { useState } from 'react';
+// import { Link } from "react-router-dom";
+// import './Navbar.css'
+
+// import { NavLink } from "react-router-dom";
+// import { GiRocketThruster } from "react-icons/gi";
+// import { FaBars, FaTimes } from "react-icons/fa";
+// import { IconContext } from "react-icons/lib";
+
+// const Navbar = () => {
+//     const [click, setClick] = useState(false)
+
+//     const handleClick = () => setClick(!click)
+//     const closeMobileMenu = () => setClick(false)
+
+//   return (
+//     <>
+//     <nav className='navbar'>
+//         <div className='navbar-container container'>
+//             <Link to='/' className="navbar-logo">
+//                 <GiRocketThruster className="navbar-icon" onClick={closeMobileMenu}/>
+//                 Rate your Landlord
+//             </Link>
+//             <div className='menu-icon'onClick={handleClick}>
+//                 {click ? <FaTimes /> : <FaBars />}
+//             </div>
+//             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+//                 <li className='nav-item'>
+//                 <NavLink
+//                   to="/"
+//                   className={({ isActive }) =>
+//                     "nav-links" + (isActive ? " activated" : "")
+//                   }
+//                   onClick={closeMobileMenu}
+//                 >
+//                   Home
+//                 </NavLink>
+//               </li>
+//               <li className="nav-item">
+//                 <NavLink
+//                   to="/about"
+//                   className={({ isActive }) =>
+//                     "nav-links" + (isActive ? " activated" : "")
+//                   }
+//                   onClick={closeMobileMenu}
+//                 >
+//                   About
+//                 </NavLink>
+//               </li>
+//               <li className="nav-item">
+//                 <NavLink
+//                   to="/contact"
+//                   className={({ isActive }) =>
+//                     "nav-links" + (isActive ? " activated" : "")
+//                   }
+//                   onClick={closeMobileMenu}
+//                 >
+//                   Contact
+//                 </NavLink>
+//               </li>
+//             </ul>
+//           </div>
+//         </nav>
+//     </>
+//   );
+// }
+
+// export default Navbar;
+
+// import React, { useState } from 'react';
+// import { Link } from "react-router-dom";
+// import './Navbar.css';
+
+// import { NavLink } from "react-router-dom";
+// import { GiRocketThruster } from "react-icons/gi";
+// import { FaBars, FaTimes } from "react-icons/fa";
+// import { IconContext } from "react-icons/lib";
+
+// const Navbar = () => {
+//     const [click, setClick] = useState(false);
+
+//     const handleClick = () => setClick(!click);
+//     const closeMobileMenu = () => setClick(false);
+
+//     return (
+//         <>
+//             <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+//                 <div className='container'>
+//                     <Link to='/' className="navbar-logo">
+//                         <GiRocketThruster className="navbar-icon" onClick={closeMobileMenu} />
+//                         Rate your Landlord
+//                     </Link>
+//                     <button className='navbar-toggler' type='button' onClick={handleClick}>
+//                         <FaBars />
+//                     </button>
+//                     <div className={click ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'}>
+//                         <ul className='navbar-nav ml-auto'>
+//                             <li className='nav-item'>
+//                                 <NavLink
+//                                     to="/"
+//                                     className="nav-link"
+//                                     onClick={closeMobileMenu}
+//                                 >
+//                                     Home
+//                                 </NavLink>
+//                             </li>
+//                             <li className="nav-item">
+//                                 <NavLink
+//                                     to="/about"
+//                                     className="nav-link"
+//                                     onClick={closeMobileMenu}
+//                                 >
+//                                     About
+//                                 </NavLink>
+//                             </li>
+//                             <li className="nav-item">
+//                                 <NavLink
+//                                     to="/contact"
+//                                     className="nav-link"
+//                                     onClick={closeMobileMenu}
+//                                 >
+//                                     Contact
+//                                 </NavLink>
+//                             </li>
+//                         </ul>
+//                     </div>
+//                 </div>
+//             </nav>
+//         </>
+//     );
+// }
+
+// export default Navbar;
+

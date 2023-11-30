@@ -28,13 +28,29 @@ export const SearchBar = ({ setResults }) => {
   };
 
   return (
-    <div className="input-wrapper">
-      <FaSearch id="search-icon" />
+    <div className="input-group mb-3"> {/* Use Bootstrap's input group */}
+    <span className="input-group-text" id="search-icon">
+      <FaSearch />
+      </span>
       <input
-        placeholder="Type to search..."
-        value={input}
-        onChange={(e) => handleChange(e.target.value)}
+      type="text"
+      className="form-control" // Apply Bootstrap's form-control class
+      placeholder="Type to search..."
+      value={input}
+      onChange={(e) => handleChange(e.target.value)}
       />
-    </div>
-  );
-};
+      </div>
+      );
+    };
+
+
+       // <div className="input-wrapper">
+    //   <FaSearch id="search-icon" />
+    //   <input
+    //     placeholder="Type to search..."
+    //     value={input}
+    //     onChange={(e) => handleChange(e.target.value)}
+    //   />
+    // </div>
+    
+
