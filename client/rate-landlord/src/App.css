@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+:root {
+  --color1: #388087;
+  --color2: #BADFE7;
+  --color3: #F6F6F2;
+  --color4: #6FB3B8;
+
+  --filter-to-color1: invert(41%) sepia(48%) saturate(430%) hue-rotate(137deg) brightness(97%) contrast(94%);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -6,6 +16,10 @@ html {
 body {
   font-family: 'Commissioner', sans-serif;
   font-weight: 300;
+}
+
+#root {
+  background-color: #f6f6f2;
 }
 
 * {
@@ -54,9 +68,34 @@ body {
   }
 }
 
+.introduction h2, .introduction h3 {
+  color: var(--color1)
+}
 
+.introduction {
+  text-align: center;
+  background-color: var(--color3);
+  padding: 1em 0;
+}
 
+.home-search{
+  height: 50vh;
+  background: url("../public/img.png");
+  background-size: cover;
+}
 
+.sign-up-text p{
+  color: var(--color1);
+  font-size: 24px;
+}
+
+.rtr-btn {
+  background-color: var(--color4);
+  color: #fff;
+  padding: .5em 1em;
+  border-radius: 30px;
+  border: none;
+}
 
 
 
@@ -91,11 +130,13 @@ body {
 }
 
 
+.seperator {
+  background-color: var(--color1);
+  height: 5vh;
+}
 
-
-.info-card,{
-  margin-bottom: 1.5em;
-  margin-top: 1.5em;
+.wip-content {
+  padding: 1em 0;
 }
 
 .info-card h3 {

@@ -1,5 +1,6 @@
 .search-bar-container{
-  background-color: #000;
+  background-image: url('../../../public/img.png');
+  background-size: cover;
 }
 
 .search-bar {
@@ -39,4 +40,33 @@ input:focus {
 
 #search-icon {
   color: royalblue;
+}
+
+nav a.navbar-brand, .navbar-nav a.nav-link, .navbar-nav a.nav-link.active {
+  color: #fff;
+}
+
+.home-form {
+  position: relative;
+}
+
+.home-search input{
+  width: 100%;
+  padding: 1em;
+  border-radius: 30px;
+  background-color: var(--color2);
+  margin-top: 30vh;
+  border: none;
+}
+
+.home-search button{
+  position: absolute;
+  bottom: 8px;
+  right: 3%;
+  color: var(--color2);
+  background-color: var(--color1);
+  border-radius: 30px;
+  border: none;
+  font-size: 20px;
+  padding: .1em .3em;
 }

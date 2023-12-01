@@ -1,0 +1,9 @@
+.info-card {
+    text-align: center;
+}
+
+.info-card .info-img img{
+    height: 100px;
+    width: auto;
+    margin-bottom: 1em;
+}

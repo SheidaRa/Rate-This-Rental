@@ -1,4 +1,5 @@
 import React from 'react'
+import "./InfoCard.css";
 
 const InfoCard = ({ title, info,  image = '/photos/icons/placeholder.jpg' }) => {
     return (

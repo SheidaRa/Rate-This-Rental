@@ -1,0 +1,8 @@
+.rating .label{
+    width: auto;
+}
+
+.rating .stars{
+    text-align: end;
+    width: auto;
+}

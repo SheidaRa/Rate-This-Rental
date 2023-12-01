@@ -1,0 +1,34 @@
+.overall img{
+    width: 100px;
+}
+
+.overall span{
+    width: auto;
+    color: var(--color1);
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.overall {
+    align-items: center;
+}
+
+.rating {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rating svg{
+    width: auto;
+    padding: 0;
+    color: #FACE38;
+}
+
+.wip-content .review-btn {
+    background-color: var(--color1);
+    color: #fff;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    padding: .5em 1em;
+}

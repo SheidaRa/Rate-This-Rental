@@ -1,0 +1,24 @@
+.carousel-item {
+    height: 580px;
+}
+
+.carousel-item img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}   
+
+.slider .carousel-control-prev-icon, .slider .carousel-control-next-icon {
+    filter: var(--filter-to-color1) drop-shadow(2px 0px 6px #8b8d8e);
+    background-image: url("../../../public/photos/icons/Caret.svg");
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-control-next-icon {
+    transform: rotate(90deg);
+}
+
+.carousel-control-prev-icon {
+    transform: rotate(-90deg);
+}

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { CgProfile } from "react-icons/cg";
+import { FaHouse } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -15,53 +17,60 @@ const Navbar = () => {
     <>
       <nav className='navbar navbar-expand-lg '>
         <div className='container'>
-          <Link to='/' className='navbar-brand'>
-            Rate your Landlord
-          </Link>
-          <button
+          <div className='row'>
+            <div className='navigation-links col-lg-4'>
+              <div className={click ? 'collapse navbar-collapse' : 'navbar-collapse'}>
+                <NavLink
+                      exact
+                      to='/about'
+                      className='nav-link'
+                      id='about-us'
+                      activeClassName='active'
+                      onClick={closeMobileMenu}
+                    >
+                      About us
+                </NavLink>
+                <NavLink
+                      exact
+                      to='/contact'
+                      className='nav-link'
+                      id='get-in-touch'
+                      activeClassName='active'
+                      onClick={closeMobileMenu}
+                    >
+                      Get in touch !
+                </NavLink>
+                <NavLink
+                      exact
+                      to='/map'
+                      className='nav-link'
+                      id='map'
+                      activeClassName='active'
+                      onClick={closeMobileMenu}
+                    >
+                      Map
+                </NavLink>
+              </div>
+              <button
             className='navbar-toggler'
             type='button'
             onClick={handleClick}
           >
-            {click ? <FaTimes /> : <FaBars />}
+            {click ? <FaBars /> : <FaTimes />}
           </button>
-          <div className={click ? 'collapse navbar-collapse' : 'navbar-collapse'}>
-            <ul className='navbar-nav ml-auto'>
-              <li className='nav-item'>
-                <NavLink
-                  exact
-                  to='/'
-                  className='nav-link'
-                  activeClassName='active'
-                  onClick={closeMobileMenu}
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink
-                  exact
-                  to='/about'
-                  className='nav-link'
-                  activeClassName='active'
-                  onClick={closeMobileMenu}
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink
-                  exact
-                  to='/contact'
-                  className='nav-link'
-                  activeClassName='active'
-                  onClick={closeMobileMenu}
-                >
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
+            </div>
+            <div className='col-lg-4 landlord-logo'>
+              <Link to='/'>
+              <FaHouse /> Rate your Landlord
+              </Link>
+            </div>
+            <div className='col-lg-4 sign-in'>
+              <Link to='/signin'>
+              Sign in <CgProfile />
+              </Link>
+            </div>
           </div>
+          
         </div>
       </nav>
     </>
