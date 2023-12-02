@@ -16,10 +16,10 @@ const Nearby = ({image, address, rating, reviews}) => {
   return (
     <>
         <div className='row nearby'>
-            <div className='col-lg-4'>
+            <div className='col-4'>
                 <img className='nearby-img' src={image}></img>
             </div>
-            <div className='col-lg-7'>
+            <div className='col-7'>
                 <p className='nearby-address'>{address}</p>
                 <span className='stars'>
                     {filledStars}

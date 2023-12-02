@@ -15,10 +15,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='navbar navbar-expand-lg '>
+      <nav className='navbar navbar-expand-md '>
         <div className='container'>
           <div className='row'>
-            <div className='navigation-links col-lg-4'>
+            <div className='navigation-links col-md-4'>
               <div className={click ? 'collapse navbar-collapse' : 'navbar-collapse'}>
                 <NavLink
                       exact
@@ -59,12 +59,12 @@ const Navbar = () => {
             {click ? <FaBars /> : <FaTimes />}
           </button>
             </div>
-            <div className='col-lg-4 landlord-logo'>
+            <div className='col-md-4 landlord-logo'>
               <Link to='/'>
               <FaHouse /> Rate your Landlord
               </Link>
             </div>
-            <div className='col-lg-4 sign-in'>
+            <div className='col-md-4 sign-in'>
               <Link to='/signin'>
               Sign in <CgProfile />
               </Link>

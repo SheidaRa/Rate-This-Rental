@@ -184,6 +184,11 @@ body {
 
 /* Css for devices with a width inferior to 768px, so including mobile phones */
 @media (max-width: 768px) {
+
+  .wip-bottom-row {
+    flex-direction: column-reverse;
+  }
+
   .navbar {
     display: none;
   }

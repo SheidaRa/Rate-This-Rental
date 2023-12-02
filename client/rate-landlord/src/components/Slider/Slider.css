@@ -1,5 +1,6 @@
 .carousel-item {
     height: 580px;
+    margin-bottom: 1em;
 }
 
 .carousel-item img{
@@ -21,4 +22,10 @@
 
 .carousel-control-prev-icon {
     transform: rotate(-90deg);
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 300px;
+    }
 }

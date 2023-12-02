@@ -21,7 +21,7 @@ const Review = ({location, responsiveness, maintenance, rent, date, lord, text})
   return (
     <div className='review'>
         <div className='row review-first-row'>
-            <div className='col-lg-2 '>
+            <div className='col-lg-2 col-3 '>
                 <div className='review-overall'>
                     <div className='row'>
                         <span>Overall</span>
@@ -31,7 +31,7 @@ const Review = ({location, responsiveness, maintenance, rent, date, lord, text})
                     </div>
                 </div>
             </div>
-            <div className='col-lg-10'>
+            <div className='col-lg-10 col-9'>
                 <div className='row'>
                     <p>{timePast} ago</p>
                 </div>
@@ -40,14 +40,24 @@ const Review = ({location, responsiveness, maintenance, rent, date, lord, text})
                 </div>
             </div>
         </div>
-        <div className='row'>
-            <div className='col-lg-3'>
-                <div className='row rating'><Rating label='Location' grade={location} /></div>
-                <div className='row rating'><Rating label='Responsiveness' grade={responsiveness} /></div>
-                <div className='row rating'><Rating label='Maintenance' grade={maintenance} /></div>
-                <div className='row rating'><Rating label='Rent and Fees' grade={rent} /></div>
+        <div className='row review-bottom-row'>
+            <div className='col-md-3'>
+                <div className='row'>
+                    <div className='col-md-12 col-3'>
+                        <div className=' rating'><Rating label='Location' grade={location} /></div>
+                    </div>
+                    <div className='col-md-12 col-3'>
+                        <div className=' rating'><Rating label='Responsiveness' grade={responsiveness} /></div>
+                    </div>
+                    <div className='col-md-12 col-3'>
+                        <div className=' rating'><Rating label='Maintenance' grade={maintenance} /></div>
+                    </div>
+                    <div className='col-md-12 col-3'>
+                        <div className=' rating'><Rating label='Rent and Fees' grade={rent} /></div>
+                    </div>
+                </div>
             </div>
-            <div className='col-lg-9'>
+            <div className='col-md-9'>
                 <p>
                     {text}
                 </p>

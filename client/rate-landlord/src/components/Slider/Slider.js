@@ -13,19 +13,21 @@ const Slider = () => {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
     <Carousel.Item>
-        <img src="/photos/appartment.png"></img>
+        <img src="/photos/apartment/1.png"></img>
       <Carousel.Caption>
         <h3>First slide label</h3>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
+    <img src="/photos/apartment/2.png"></img>
       <Carousel.Caption>
         <h3>Second slide label</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
+    <img src="/photos/apartment/3.jpg"></img>
       <Carousel.Caption>
         <h3>Third slide label</h3>
         <p>

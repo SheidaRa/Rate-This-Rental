@@ -1,0 +1,23 @@
+.small-search-bar input {
+    width: 100%;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: var(--color2);
+    border: none;
+}
+
+.small-search-bar button {
+    position: absolute;
+    bottom: 8px;
+    right: 3%;
+    color: var(--color2);
+    background-color: var(--color1);
+    border-radius: 30px;
+    border: none;
+    font-size: 20px;
+    padding: .1em .3em;
+}
+
+.small-search-bar {
+    position: relative;
+}

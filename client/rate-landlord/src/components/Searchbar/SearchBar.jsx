@@ -29,7 +29,7 @@ export const SearchBar = ({ setResults }) => {
 
   return (
     <div className="form-row"> {/* Use Bootstrap's input group */}
-      <div className="col-lg-8 offset-lg-2 home-form">
+      <div className="col-md-8 offset-md-2 home-form">
         <input
           type="text"
           placeholder="Enter an address, neighborhood, city, or ZIP code"

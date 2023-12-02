@@ -15,7 +15,7 @@ const Rating = ({label, grade}) => {
 
   return (
     <>
-        <span className='label'>{label}</span>
+        <span className='label'>{label}</span><br></br>
         <span className='stars'>
             {filledStars}
             {emptyStars}

@@ -32,3 +32,9 @@
 .review-overall-grade {
     font-size: 30px;
 }
+
+@media (max-width: 762px) {
+    .review-bottom-row {
+        flex-direction: column-reverse;
+    }
+}
