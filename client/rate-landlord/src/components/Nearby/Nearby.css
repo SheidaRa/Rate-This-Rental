@@ -1,0 +1,19 @@
+.nearby-img {
+    width: 100%;
+}
+
+.nearby p{
+    width: auto;
+}
+
+.nearby svg{
+    color: #FACE38;
+}
+
+.nearby-address {
+    margin-bottom: 0;
+}
+
+.nearby {
+    margin-bottom: 1em;
+}

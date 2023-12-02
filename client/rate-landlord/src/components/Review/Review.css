@@ -1,0 +1,34 @@
+.review .rating span{
+    width: 100%;
+}
+
+.review .rating .stars{
+    text-align: left;
+}
+
+.review {
+    padding: 1em;
+    border: solid 1px var(--color1);
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+.review-overall {
+    background-color: var(--color1);
+    padding: .5em 1em;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.review-first-row {
+    margin-bottom: 1em;
+}
+
+.review-overall span {
+    font-weight: 600;
+}
+
+.review-overall-grade {
+    font-size: 30px;
+}
