@@ -15,56 +15,65 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='navbar navbar-expand-md '>
+      <nav className='navbar navbar-expand-lg '>
         <div className='container'>
           <div className='row'>
-            <div className='navigation-links col-md-4'>
-              <div className={click ? 'collapse navbar-collapse' : 'navbar-collapse'}>
-                <NavLink
-                      exact
-                      to='/about'
-                      className='nav-link'
-                      id='about-us'
-                      activeClassName='active'
-                      onClick={closeMobileMenu}
-                    >
-                      About us
-                </NavLink>
-                <NavLink
-                      exact
-                      to='/contact'
-                      className='nav-link'
-                      id='get-in-touch'
-                      activeClassName='active'
-                      onClick={closeMobileMenu}
-                    >
-                      Get in touch !
-                </NavLink>
-                <NavLink
-                      exact
-                      to='/map'
-                      className='nav-link'
-                      id='map'
-                      activeClassName='active'
-                      onClick={closeMobileMenu}
-                    >
-                      Map
-                </NavLink>
-              </div>
+            <div className='navigation-links col-md-4 col-3'>
+              <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                <li className='nav-item'>
+                  <NavLink
+                        exact
+                        to='/about'
+                        className={({ isActive }) => 
+                          "nav-links" + (isActive ? "activated" : "")
+                        }
+                        id='about-us'
+                        onClick={closeMobileMenu}
+                      >
+                        About us
+                  </NavLink>
+                </li>
+                <li className='nav-item'>
+                  <NavLink
+                        exact
+                        to='/contact'
+                        className={({ isActive }) => 
+                          "nav-links" + (isActive ? "activated" : "")
+                        }
+                        id='get-in-touch'
+                        onClick={closeMobileMenu}
+                      >
+                        Get in touch !
+                  </NavLink>
+                </li>
+                <li className='nav-item'>
+                  <NavLink
+                        exact
+                        to='/map'
+                        className={({ isActive }) => 
+                          "nav-links" + (isActive ? "activated" : "")
+                        }
+                        id='map'
+                        onClick={closeMobileMenu}
+                      >
+                        Map
+                  </NavLink>
+                </li>
+              </ul>
               <button
             className='navbar-toggler'
             type='button'
             onClick={handleClick}
           >
-            {click ? <FaBars /> : <FaTimes />}
+            {click ? <FaTimes /> : <FaBars />}
           </button>
             </div>
-            <div className='col-md-4 landlord-logo'>
+            <div className='col-md-4 col-6 landlord-logo'>
               <Link to='/'>
-              <FaHouse /> Rate your Landlord
+              <FaHouse /> Rate This Rental
               </Link>
             </div>
-            <div className='col-md-4 sign-in'>
+            <div className='col-md-4 col-3 sign-in'>
               <Link to='/signin'>
               Sign in <CgProfile />
               </Link>
