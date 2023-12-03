@@ -1,8 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Property.css"
 import Rating from '../Rating/Rating'
+import WriteReview from '../WriteReview/WriteReview'
 
 const Property = ({ address, city, state, zip, loard, rating, location, responsiveness, maintenance, rent}) => {
+
+  const [isVisible, setVisibility] = useState(false);
+
+  const handleReviewBtnClick = () => (
+    setVisibility(true)
+  )
+
+  const resetVisibility = () => (
+    setVisibility(false)
+  )
   return (
     <>
       <div className='row'>
@@ -29,11 +40,12 @@ const Property = ({ address, city, state, zip, loard, rating, location, responsi
           <div className='row'><p>Did you live here ?</p></div>
           <div className='row'>
               <span>
-                  <button className='review-btn'>
+                  <button className='review-btn' onClick={handleReviewBtnClick}>
                       Write a review
                   </button>
               </span>
           </div>
+        <WriteReview isVisible={isVisible} setVisibility={setVisibility} resetVisibility={resetVisibility}/>
     </>
   )
 }
