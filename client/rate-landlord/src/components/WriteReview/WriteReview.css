@@ -1,0 +1,85 @@
+.write-review-container {
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    top: 25vh;
+    max-height: 80%;
+    position: fixed;
+    width: 600px;
+    z-index: 2147483647
+}
+
+.write-review {
+    background-color: var(--color1);
+    color: #fff;
+    height: 470px;
+    overflow-x: auto;
+    box-shadow: 0 40px 60px #545454;
+    border-radius: 10px;
+    margin: 0;
+    padding: 1em;
+}
+
+.write-review textarea {
+    width: 100%;
+    height: 20vh;
+    padding: 1em;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+.form-submit {
+    color: var(--color1);
+    background-color: #fff;
+    padding: .5em 1em;
+    width: auto;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.form-submit-div {
+    text-align: center;
+}
+
+.form-rating-row {
+    margin-bottom: 1em;
+}
+
+.form-rating-row .rating {
+    margin-bottom: 1em;
+}
+
+.form-group.row {
+    margin-bottom: 1em;
+}
+
+.form-group.row div {
+    display: flex;
+    align-items: center;
+}
+
+.write-review-title {
+    text-align: center;
+}
+
+.write-review select {
+    background-color: var(--color2);
+    width: 10vw;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .write-review{
+        height: 100%;
+    }
+
+    .write-review-container {
+        width: 100%;
+    }
+
+    .write-review select{
+        width: 100%;
+    }
+}
