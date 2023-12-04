@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
 import Wip from './pages/Wip';
+import Authentication from './pages/Authentication';
 
 import { SearchBar } from './components/Searchbar/SearchBar';
 import { SearchResultsList } from './components/Searchbar/SearchResultsList';
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contacts />} />
           <Route exact path="/wip" element={<Wip />} />
+          <Route exact path="/signin" element={<Authentication />} />
         </Routes>
       </Router>
 
