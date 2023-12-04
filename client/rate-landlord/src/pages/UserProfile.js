@@ -3,7 +3,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import './CSS/LandlordProfile.css'
 
 
-export default function LandlordProfile() {
+export default function UserProfile() {
   return (
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -26,29 +26,13 @@ export default function LandlordProfile() {
                 <div className="d-flex justify-content-end text-center py-1">
                   <div>
                     <MDBCardText className="mb-1 h5">253</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">properties</MDBCardText>
-                  </div>
-                  <div className="px-3">
-                    <MDBCardText className="mb-1 h5">1026</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">ratings</MDBCardText>
-                  </div>
-                  <div>
-                    <MDBCardText className="mb-1 h5">478</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">stars</MDBCardText>
+                    <MDBCardText className="small text-muted mb-0">Reviews</MDBCardText>
                   </div>
                 </div>
               </div>
               <MDBCardBody className="text-black p-4">
-                <div className="mb-5">
-                  <p className="lead fw-normal mb-1">About</p>
-                  <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                    <MDBCardText className="font-italic mb-1">Landlord </MDBCardText>
-                    <MDBCardText className="font-italic mb-1">Lives in MN</MDBCardText>
-                    <MDBCardText className="font-italic mb-0">I like to keep deposits yum yum</MDBCardText>
-                  </div>
-                </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                  <MDBCardText className="lead fw-normal mb-0">Properties</MDBCardText>
+                  <MDBCardText className="lead fw-normal mb-0">My Reviews</MDBCardText>
                   <MDBCardText className="mb-0"><a href="#!" className="text-muted">Show all</a></MDBCardText>
                 </div>
                 <MDBRow>

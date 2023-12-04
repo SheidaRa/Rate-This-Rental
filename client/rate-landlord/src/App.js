@@ -9,7 +9,7 @@ import About from './pages/About';
 import Contacts from './pages/Contacts';
 import Wip from './pages/Wip';
 import Authentication from './pages/Authentication';
-import EditButton from './pages/LandlordProfile';
+import LandlordProfile from './pages/LandlordProfile';
 
 import { SearchBar } from './components/Searchbar/SearchBar';
 import { SearchResultsList } from './components/Searchbar/SearchResultsList';
@@ -18,6 +18,7 @@ import "./components/Searchbar/SearchResultsList.css";
 import "./components/Searchbar/SearchResult.css";
 import InfoCard from './components/Cards/InfoCard';
 import Button from './components/Button/Button';
+import UserProfile from './pages/UserProfile';
 
 function App() {
 
@@ -35,7 +36,9 @@ function App() {
           <Route exact path="/contact" element={<Contacts />} />
           <Route exact path="/wip" element={<Wip />} />
           <Route exact path="/signin" element={<Authentication />} />
-          <Route exact path="/llp" element={<EditButton/>} />
+          <Route exact path="/llp" element={<LandlordProfile/>} />
+          <Route exact path="/Up" element={<UserProfile/>} />
+
 
         </Routes>
       </Router>
