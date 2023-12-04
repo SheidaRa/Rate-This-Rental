@@ -25,7 +25,7 @@ const Navbar = () => {
                         exact
                         to='/about'
                         className={({ isActive }) => 
-                          "nav-links" + (isActive ? "activated" : "")
+                          "nav-links " + (isActive ? "activated" : "")
                         }
                         id='about-us'
                         onClick={closeMobileMenu}
@@ -38,7 +38,7 @@ const Navbar = () => {
                         exact
                         to='/contact'
                         className={({ isActive }) => 
-                          "nav-links" + (isActive ? "activated" : "")
+                          "nav-links " + (isActive ? "activated" : "")
                         }
                         id='get-in-touch'
                         onClick={closeMobileMenu}
@@ -51,7 +51,7 @@ const Navbar = () => {
                         exact
                         to='/map'
                         className={({ isActive }) => 
-                          "nav-links" + (isActive ? "activated" : "")
+                          "nav-links " + (isActive ? "activated" : "")
                         }
                         id='map'
                         onClick={closeMobileMenu}
