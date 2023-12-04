@@ -9,7 +9,7 @@ import About from './pages/About';
 import Contacts from './pages/Contacts';
 import Wip from './pages/Wip';
 import Authentication from './pages/Authentication';
-
+import EditButton from './pages/LandlordProfile';
 
 import { SearchBar } from './components/Searchbar/SearchBar';
 import { SearchResultsList } from './components/Searchbar/SearchResultsList';
@@ -35,6 +35,8 @@ function App() {
           <Route exact path="/contact" element={<Contacts />} />
           <Route exact path="/wip" element={<Wip />} />
           <Route exact path="/signin" element={<Authentication />} />
+          <Route exact path="/llp" element={<EditButton/>} />
+
         </Routes>
       </Router>
 
