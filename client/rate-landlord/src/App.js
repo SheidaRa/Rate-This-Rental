@@ -10,6 +10,7 @@ import Contacts from './pages/Contacts';
 import Wip from './pages/Wip';
 import Authentication from './pages/Authentication';
 
+
 import { SearchBar } from './components/Searchbar/SearchBar';
 import { SearchResultsList } from './components/Searchbar/SearchResultsList';
 import "./components/Searchbar/SearchBar";

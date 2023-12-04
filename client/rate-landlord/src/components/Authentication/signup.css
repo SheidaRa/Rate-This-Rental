@@ -1,0 +1,97 @@
+/* Custom input styles similar to MDBInput */
+.custom-input {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-input:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+/* Custom card styles similar to MDBCard and MDBCardBody */
+.custom-card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+
+/* Custom button styles similar to MDBBtn */
+.custom-btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-btn:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+  .custom-row {
+    width: 100%; /* Occupy full width */
+  }
+
+  .custom-col-md-6 {
+    width: 100%; /* Occupy full width */
+    padding: 0 15px; /* Adjust padding as needed */
+  }
+}
+
+/* For larger screens, show elements side by side */
+@media (min-width: 769px) {
+  .custom-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Set the container to full viewport height */
+  }
+
+  .custom-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 50%; /* Take up 50% of the container's width */
+    padding: 0 20px; /* Add padding as needed */
+  }
+
+  /* Custom column styles similar to MDBCol */
+  .custom-col-md-6 {
+    position: relative;
+    width: 50%; /* Take up 50% of the container's width */
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

@@ -1,0 +1,75 @@
+/* signup.css */
+
+/* For smaller screens, stack elements vertically */
+@media (max-width: 768px) {
+  .custom-row {
+    width: 100%; /* Occupy full width */
+  }
+
+  .signin-container {
+    width: 100%;
+    max-width: none; /* Reset max-width for mobile */
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
+
+/* For larger screens, show elements side by side */
+@media (min-width: 769px) {
+  .custom-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Set the container to full viewport height */
+  }
+
+  .custom-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 50%; /* Take up 50% of the container's width */
+    padding: 0 20px; /* Add padding as needed */
+  }
+
+  /* Sign-in form container styles */
+  .signin-container {
+    width: 50%; /* Take up 50% of the container's width */
+    max-width: 600px; /* Adjust the width as needed */
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
+
+  /* Input styles */
+  .signin-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button styles */
+  .signin-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #388087;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .signin-btn:hover {
+    background-color: #6FB3B8;
+  }
+  
