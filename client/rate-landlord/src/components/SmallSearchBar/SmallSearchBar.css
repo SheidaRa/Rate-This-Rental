@@ -21,3 +21,11 @@
 .small-search-bar {
     position: relative;
 }
+
+.wip-content .MuiList-root {
+    background-color: #fff;
+    position: absolute;
+    margin-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-top: 0;
+    padding-bottom: 0;
+}
