@@ -35,7 +35,7 @@
 // export default SignInForm;
 
 import React, { useState } from "react";
-import "./signin.css"; 
+import "./signin&up.css"; 
 
 const SignInForm = ({ onSignIn }) => {
   const [email, setEmail] = useState('');
@@ -48,11 +48,10 @@ const SignInForm = ({ onSignIn }) => {
 
   return (
     <div className="auth-row">
-      <div className='auth-col-md-4 offset-md-1'>
-      <h1 >
-        
-        We are a community
-          </h1>
+    <div className='col-md-4 offset-md-1'>
+        <h1 >
+          We are a community
+        </h1>
         <p className='auth-p-3'>
           We prioritize your privacy. Your reviews will always remain anonymous,
           ensuring your thoughts and feedback are shared confidently.
@@ -60,10 +59,12 @@ const SignInForm = ({ onSignIn }) => {
           about your identity being revealed.
         </p>
       </div>
-      <div className='auth-col-md-4 offset-md-2'>
-        <div className="signin-container"> {}
-    
+      
+      
+      <div className='auth-col-md-4 offset-md-2'>    
       <form id="sign_in_form" onSubmit={handleSignIn} className="signin-form">
+      <div className="auth-custom-card p-5">
+
         <input
           type="email"
           name="email"
@@ -83,10 +84,10 @@ const SignInForm = ({ onSignIn }) => {
           className="signin-input"
         />
         <button type="submit" className="auth-signin-btn">Sign In</button>
+        </div>
       </form>
       </div>
     </div>
-  </div>
   );
 };
 

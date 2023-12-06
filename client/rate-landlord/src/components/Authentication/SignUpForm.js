@@ -44,7 +44,7 @@
 // export default SignUpForm;
 
 import React, { useState } from "react";
-import './signup.css'
+import './signin&up.css'
 
 const SignUpForm = ({ onSignUp }) => {
   const [firstName, setFirstName] = useState('');
@@ -79,23 +79,10 @@ const SignUpForm = ({ onSignUp }) => {
                     className="auth-custom-input mb-4"
                     type="text"
                     name="firstName"
-                    placeholder="First Name"
+                    placeholder="Name (Optional)"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    required
                   />
-                  <input
-                    className="auth-custom-input mb-4"
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                  />
-
-
-
               <input
                 className="auth-custom-input mb-4"
                 type="email"
