@@ -9,12 +9,13 @@ function Contacts() {
           <div className="row">
             <div className="col-lg-6">
               <div className="card-shadow">
-                <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/2.jpg" className="img-fluid" alt="Contact" />
+                <img src="/photos/other/contact.png" className="img-fluid" alt=" Letter pockets" />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="contact-box ml-3">
-                <h1 className="font-weight-light mt-2">Quick Contact</h1>
+                <h1 className="font-weight-light mt-2">Write to Us!</h1>
+                <p>Comments, Questions, Compliments? Send us an email and we will get back to you as soon a we can!</p>
                 <form className="mt-4">
                   <div className="row">
                     <div className="col-lg-12">
