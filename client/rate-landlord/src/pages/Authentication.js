@@ -148,6 +148,7 @@ import React, { useState, useEffect } from 'react';
 import SignInForm from '../components/Authentication/SignInForm';
 import SignUpForm from '../components/Authentication/SignUpForm';
 import SignOutButton from '../components/Authentication/SignOutButton';
+import './CSS/Authentication.css'
 
 const API_URL = "http://localhost:3001/users/tokens";
 
@@ -290,7 +291,8 @@ const Authentication = () => {
           ) : (
             <SignInForm onSignIn={signIn} />
           )}
-          <p>
+          <div className="sign-inup-contianer">
+          <p className="sign-inup-section">
             {isSigningUp
               ? "Already have an account?"
               : "Don't have an account?"}
@@ -298,7 +300,9 @@ const Authentication = () => {
               {isSigningUp ? "Sign In" : "Sign Up"}
             </button>
           </p>
-          <SignOutButton onSignOut={signOut} />
+          </div>
+
+          <SignOutButton  onSignOut={signOut} />
         </div>
       )}
     </div>

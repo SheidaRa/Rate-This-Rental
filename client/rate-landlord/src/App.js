@@ -19,6 +19,7 @@ import "./components/Searchbar/SearchResult.css";
 import InfoCard from './components/Cards/InfoCard';
 import Button from './components/Button/Button';
 import UserProfile from './pages/UserProfile';
+import Mappage from './pages/Map';
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contacts />} />
+          <Route exact path="/map" element={<Mappage />} />
+
           <Route exact path="/wip" element={<Wip />} />
           <Route exact path="/signin" element={<Authentication />} />
           <Route exact path="/llp" element={<LandlordProfile/>} />

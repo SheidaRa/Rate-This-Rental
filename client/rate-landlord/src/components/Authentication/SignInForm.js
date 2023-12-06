@@ -47,20 +47,22 @@ const SignInForm = ({ onSignIn }) => {
   };
 
   return (
-    <div className="custom-container p-4"> {/* Use a custom container class similar to MDBContainer */}
-    <div className="custom-row">
-      <div className="custom-col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
-        <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-          <span className="text-primary">We are a community</span>
-        </h1>
-        <p className='px-3'>
+    <div className="auth-row">
+      <div className='auth-col-md-4 offset-md-1'>
+      <h1 >
+        
+        We are a community
+          </h1>
+        <p className='auth-p-3'>
           We prioritize your privacy. Your reviews will always remain anonymous,
           ensuring your thoughts and feedback are shared confidently.
           Join us today and share your experiences without any worries
           about your identity being revealed.
         </p>
       </div>
-    <div className="signin-container"> {}
+      <div className='auth-col-md-4 offset-md-2'>
+        <div className="signin-container"> {}
+    
       <form id="sign_in_form" onSubmit={handleSignIn} className="signin-form">
         <input
           type="email"
@@ -82,9 +84,9 @@ const SignInForm = ({ onSignIn }) => {
         />
         <button type="submit" className="signin-btn">Sign In</button>
       </form>
+      </div>
     </div>
-    </div>
-    </div>
+  </div>
   );
 };
 

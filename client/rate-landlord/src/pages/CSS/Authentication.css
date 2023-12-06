@@ -1,0 +1,62 @@
+.sign-inup-container {
+    margin-right: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .sign-inup-section {
+    margin-right: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sign-inup-section button {
+    background-color: #388087;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .sign-inup-section button:hover {
+    background-color: #6fb3b8;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 768px) {
+    .sign-inup-container {
+      margin-right: 2rem; /* Adjust as needed */
+      align-items: center;
+    }
+  
+    .sign-inup-section {
+      margin-right: 2rem; /* Adjust as needed */
+      align-items: center;
+    }
+  }
+  
+  /* Style for the "Sign Out" button
+  .sign-out-button {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .sign-out-button button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sign-out-button button:hover {
+    background-color: #c82333;
+  }
+   */
