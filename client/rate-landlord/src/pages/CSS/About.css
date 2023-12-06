@@ -21,12 +21,12 @@ p {
   margin-bottom: 20px;
 }
 
-ul {
+.faq ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-ul li {
+.faq ul li {
   margin-bottom: 10px;
 }
 
