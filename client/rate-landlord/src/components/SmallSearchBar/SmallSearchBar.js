@@ -34,6 +34,25 @@ export default function SearchBox(props) {
         value={searchText}
         onChange={(event) => {
           setSearchText(event.target.value);
+                  // Search
+        const params = {
+          q: searchText,
+          format: "json",
+          addressdetails: 1,
+          polygon_geojson: 0,
+        };
+        const queryString = new URLSearchParams(params).toString();
+        const requestOptions = {
+          method: "GET",
+          redirect: "follow",
+        };
+        fetch(`${NOMINATIM_BASE_URL}${queryString}`, requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            console.log(JSON.parse(result));
+            setListPlace(JSON.parse(result));
+          })
+          .catch((err) => console.log("err: ", err));
         }}
       />
       <button
@@ -65,7 +84,7 @@ export default function SearchBox(props) {
     </div>
   </form>
   <List component="nav" aria-label="main mailbox folders">
-          {listPlace.map((item) => {
+          {Array.isArray(listPlace) && listPlace.map((item) => {
             return (
               <div key={item?.place_id}>
                 <ListItem
