@@ -1,97 +1,111 @@
-/* Custom input styles similar to MDBInput */
-.custom-input {
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
+/* signup.css */
+
+.auth-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.col-md-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.col-md-4:nth-child(odd) {
+  margin-right: 20px;
+}
+
+.auth-row h1 {
+  font-size: 3.5rem !important;
+  margin-bottom: 20px;
+  color: #388087;
+}
+
+.auth-p-3 {
+}
+
+.auth-custom-card {
   background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-custom-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.auth-custom-col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 10px;
+}
+
+.auth-custom-input {
+  background-color: #f6f6f2;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.custom-input:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+.auth-custom-input:focus {
+  outline: none;
+  border-color: #388087;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Custom card styles similar to MDBCard and MDBCardBody */
-.custom-card {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  background-color: #fff;
-}
-
-/* Custom button styles similar to MDBBtn */
-.custom-btn {
-  display: inline-block;
-  font-weight: 400;
-  color: #fff;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  background-color: #007bff;
-  border: 1px solid #007bff;
-  padding: 0.375rem 0.75rem;
+.signup-btn {
+  padding: 10px;
   font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.custom-btn:hover {
+  border: none;
+  border-radius: 4px;
+  background-color: #388087;
   color: #fff;
-  background-color: #0056b3;
-  border-color: #0056b3;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #6fb3b8;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.my-5 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 
-@media (max-width: 768px) {
-  .custom-row {
-    width: 100%; /* Occupy full width */
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .auth-row {
+    flex-direction: column;
+    margin: 20px;
   }
 
-  .custom-col-md-6 {
-    width: 100%; /* Occupy full width */
-    padding: 0 15px; /* Adjust padding as needed */
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 }
 
-/* For larger screens, show elements side by side */
-@media (min-width: 769px) {
-  .custom-container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh; /* Set the container to full viewport height */
-  }
-
-  .custom-row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    width: 50%; /* Take up 50% of the container's width */
-    padding: 0 20px; /* Add padding as needed */
-  }
-
-  /* Custom column styles similar to MDBCol */
-  .custom-col-md-6 {
-    position: relative;
-    width: 50%; /* Take up 50% of the container's width */
-    padding-right: 15px;
-    padding-left: 15px;
+@media screen and (max-width: 576px) {
+  .auth-row h1 {
+    font-size: 1.5rem;
   }
 }
