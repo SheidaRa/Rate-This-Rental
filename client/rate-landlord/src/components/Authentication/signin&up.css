@@ -68,7 +68,7 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.signup-btn {
+.auth-btn {
   padding: 10px;
   font-size: 1rem;
   border: none;
@@ -79,7 +79,7 @@
   transition: background-color 0.3s ease;
 }
 
-.signup-btn:hover {
+.auth-btn:hover {
   background-color: #6fb3b8;
 }
 
@@ -111,20 +111,7 @@
   margin-bottom: 15px;
 }
 
-.auth-signin-btn {
-  padding: 10px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #388087;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.auth-signin-btn:hover {
-  background-color: #6fb3b8;
-}
 
 /* Media Queries */
 @media screen and (max-width: 768px) {

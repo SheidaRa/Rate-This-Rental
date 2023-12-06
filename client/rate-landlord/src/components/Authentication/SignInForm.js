@@ -83,7 +83,7 @@ const SignInForm = ({ onSignIn }) => {
           required
           className="signin-input"
         />
-        <button type="submit" className="auth-signin-btn">Sign In</button>
+        <button type="submit" className="auth-btn w-100 mb-4">Sign In</button>
         </div>
       </form>
       </div>
