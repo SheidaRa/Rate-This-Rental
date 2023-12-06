@@ -1,0 +1,66 @@
+/* styles.css */
+
+/* Basic styles */
+.container {
+    margin-top: 20px;
+  }
+  
+  /* Header styles */
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Profile pic styles */
+  .img-fluid {
+    border-radius: 50%;
+  }
+  
+  /* Number of properties, reviews, and rating styles */
+  .col-md-4 h5 {
+    margin-bottom: 10px;
+  }
+  
+  /* About me section styles */
+  .col-md-8 {
+    line-height: 1.6;
+  }
+  
+  /* Properties section styles */
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    /* Adjusting columns for smaller screens */
+    .col-md-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  
+    .col-md-8 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    /* Adjusting font size for smaller screens */
+    h1 {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 18px;
+    }
+  
+    p {
+      font-size: 14px;
+    }
+  }
+  
