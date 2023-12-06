@@ -3,28 +3,43 @@ import './CSS/About.css'
 
 const About = () => {
   return (
-    <div className="container mt-4">
-      <div className="row">
-        <div className="col-md-8 offset-md-2">
-          <div className="about-us-section text-center">
-            <h2>About Us</h2>
-            <p className="lead">
-              At Rate Ur Landlord, we believe that every renting experience matters. We provide a platform for renters to share their voices, express their opinions, and rate their landlords.
-            </p>
-            <p>
-              Our mission is to empower tenants by creating a community-driven space where they can openly discuss their renting experiences, highlight the positives, and shed light on any issues they encounter.
-            </p>
-            <p>
-              By sharing these experiences, we aim to promote transparency in the rental market, help renters make informed decisions, and encourage landlords to maintain high standards and accountability.
-            </p>
-            <p>
-              Join us in shaping the future of renting experiences. Your voice matters!
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="about-us-page">
+      <section className="about-us">
+        <h2>About Us</h2>
+        <p>
+          Rate the Landlord was created as a tool for tenants to stay informed about housing the same way we stay informed about every other business, through crowd-sourced reviews.
+        </p>
+        <p>
+          We know that tenants are often in the dark when it comes to renting with a new landlord. This conflicts with the standards we hold for every other business and service where reviews allow the consumer to make an informed decision based on reports of quality and conduct.
+        </p>
+        <p>
+          Something as important as housing shouldn't be an exception. Reviewing landlords alongside other businesses will make for a more transparent marketplace. By sharing rental experiences, tenants can help others avoid situations of negligence or mistreatment and find landlords who will uphold best practices and adhere to their local legislation.
+        </p>
+        <p>
+          Share your experiences, read the reviews, and help us keep one another safe, informed, and empowered.
+        </p>
+      </section>
+
+      <section className="faq">
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <li>Why are the reviews anonymous?</li>
+          <li>How is reviewing landlords fair if you can't review tenants?</li>
+          <li>What should I do if I can't review my current landlord but still need help?</li>
+          <li>Why does RTL include landlord names?</li>
+        </ul>
+      </section>
+
+      <section className="privacy-policy">
+        <h2>Privacy Policy</h2>
+        <p>
+          At Rate the Landlord Inc., we are committed to protecting the privacy of those who submit reviews. All submissions made to our website are anonymous. We do not collect any personal data or information that could be used to identify you, such as your name, email address, or phone number.
+        </p>
+        {/* ... (rest of the Privacy Policy content) */}
+      </section>
+
+      {/* Other sections */}
     </div>
   );
 };
-
 export default About;
