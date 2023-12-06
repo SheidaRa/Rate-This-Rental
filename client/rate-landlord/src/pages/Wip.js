@@ -4,8 +4,7 @@ import Property from '../components/Property/Property'
 import Nearby from '../components/Nearby/Nearby'
 import Review from '../components/Review/Review'
 import Map from '../components/Map/Map'
-import { SmallSearchBar } from '../components/SmallSearchBar/SmallSearchBar'
-import { SearchResultsList } from '../components/Searchbar/SearchResultsList'
+import SmallSearchBar from '../components/SmallSearchBar/SmallSearchBar'
 
 import "../components/Searchbar/SearchBar.css"
 import "../components/Searchbar/SearchResultsList.css"
@@ -13,7 +12,7 @@ import "../components/Searchbar/SearchResult.css"
 
 const Wip = () => {
 
-    const [results, setResults] = useState([]);
+    const [selectPosition, setSelectPosition] = useState(null);
 
   return (
     <>
@@ -26,10 +25,9 @@ const Wip = () => {
                     <div className='col-md-4'>
                         <Property address={'1600 Grand Ave.'} city={'St Paul'} state={'MN'} zip={'55105'} loard={'John doe'} rating={'4.5'} location={4} responsiveness={4} maintenance={4} rent={4}/>
                     </div>
-                    <div className='col-md-8 '>
-                        <Map />
-                        <SmallSearchBar setResults={setResults} />
-                            {results && results.length > 0 && <SearchResultsList results={results} />}
+                    <div className='col-md-8' style={{ position: 'relative'}}>
+                        <Map selectPosition={selectPosition} />
+                        <SmallSearchBar selectPosition={selectPosition} setSelectPosition={setSelectPosition} />
                     </div>
                 </div>
                 <div className='row wip-bottom-row'>
