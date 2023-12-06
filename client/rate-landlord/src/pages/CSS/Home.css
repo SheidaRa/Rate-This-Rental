@@ -1,0 +1,60 @@
+  
+
+element.style {
+}
+.home-search {
+    height: 70vh;
+}
+
+  .introduction {
+    margin-bottom: 3rem;
+  }
+  
+  .introduction h2 {
+    margin-top: 3rem;
+
+    margin-bottom: 5rem;
+    font-weight: bold;
+
+    
+  }
+  
+  .sign-up-text {
+    margin-bottom: 2rem;
+    font-weight: bold;
+
+  }
+  
+  .why-container {
+    display:flex;
+    margin-bottom: 6rem;
+
+  }
+
+/* For smaller screens */
+@media screen and (max-width: 768px) {
+    .home-search {
+      height: 50vh; /* Adjust the height for smaller screens */
+    }
+  
+    .introduction {
+      margin-bottom: 2rem; /* Adjust margin for the introduction section */
+    }
+  
+    .introduction h2 {
+      margin-top: 2rem; /* Adjust margin top for the h2 element */
+      margin-bottom: 3rem; /* Adjust margin bottom for the h2 element */
+      font-weight: bold;
+    }
+  
+    .sign-up-text {
+      margin-bottom: 1rem; /* Adjust margin bottom for the sign-up text */
+      font-weight: bold;
+    }
+  
+    .why-container {
+      display: block; /* Change to block for smaller screens */
+      margin-bottom: 4rem; /* Adjust margin bottom for the why-container */
+    }
+  }
+  

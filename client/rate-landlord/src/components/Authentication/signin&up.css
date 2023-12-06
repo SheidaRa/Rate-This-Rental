@@ -12,24 +12,27 @@
   padding-top: 3rem;
   padding-left: 6rem;
   padding-right: 6rem;
-
   align-items: center;
 }
 
 .col-md-4 {
   flex: 0 0 33.333333%;
   max-width: 33.333333%;
-  margin-right: 20px;
+
 }
 
 .auth-row h1 {
   font-size: 3.5rem !important;
   margin-bottom: 20px;
   color: #388087;
+  align-items: center;
+
+
 }
 
-.auth-p-3 {
+.auth-p{
   font-size: 1rem !important;
+
 }
 
 .auth-custom-card {
@@ -92,9 +95,6 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
-
-/* Additional specific styles from signin.css */
-
 
 .signin-form {
   display: flex;

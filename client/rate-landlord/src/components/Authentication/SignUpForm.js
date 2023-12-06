@@ -64,7 +64,7 @@ const SignUpForm = ({ onSignUp }) => {
           <h1 >
             We are a community
           </h1>
-          <p className='auth-p-3'>
+          <p className='auth-p'>
             We prioritize your privacy. Your reviews will always remain anonymous,
             ensuring your thoughts and feedback are shared confidently.
             Join us today and share your experiences without any worries

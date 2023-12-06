@@ -7,6 +7,7 @@ import InfoCard from '../components/Cards/InfoCard';
 import "../components/Searchbar/SearchBar.css"
 import "../components/Searchbar/SearchResultsList.css"
 import "../components/Searchbar/SearchResult.css"
+import "./CSS/Home.css"
 
 
 
@@ -33,11 +34,9 @@ const Home = () => {
         </div>
       </div>
       <div className='row'>
-
+      <div className='why-container'>
         <div className='col-md-4 offset-md-1'>
-
           <InfoCard title={'Renters Impowerment'} info={'We believe in the power of community. Your reviews and ratings help renters make informed choices and encourage landlords to excel in their service. Together, we are creating a transparent  environment that strengthens our community.'} image={'/photos/icons/why1.png'} />
-
         </div>
 
         <div className='col-md-4 offset-md-2'>
@@ -46,6 +45,8 @@ const Home = () => {
 
         </div>
       </div>
+      </div>
+
       <div className='row'>
         <div class="col-md-10 offset-md-1 sign-up-text">
           <p>Sign up to save your searches, and reviews and interact with others in the community!</p>
