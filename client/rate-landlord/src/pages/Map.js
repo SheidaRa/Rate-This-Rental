@@ -1,28 +1,25 @@
-import { SearchBar } from '../components/Searchbar/SearchBar';
-import {SearchResultsList} from '../components/Searchbar/SearchResultsList';
-import { SmallSearchBar } from '../components/SmallSearchBar/SmallSearchBar';
 import Map from '../components/Map/Map';
 import { useState } from "react";
+import SmallSearchBar from '../components/SmallSearchBar/SmallSearchBar'
 
 
 import "../components/Searchbar/SearchBar.css"
 import "../components/Searchbar/SearchResultsList.css"
 import "../components/Searchbar/SearchResult.css"
-import './CSS/Map.css'
+
 
 const Mappage = () => {
-    const [results, setResults] = useState([]);
+  const [selectPosition, setSelectPosition] = useState(null);
 
   return (
-    <div className='map-container'>
-<Map />
-<div className='map-search-container'>
-
-    <SmallSearchBar setResults={setResults} />
-      {results && results.length > 0 && <SearchResultsList results={results} />}
-      </div>
-      </div>
-  )
+<div className='col-md-8 '>
+<Map selectPosition={selectPosition} />
+<section className='home-search'>
+    <div className='container'>
+      <SmallSearchBar selectPosition={selectPosition} setSelectPosition={setSelectPosition} />
+    </div>
+  </section>
+</div>  )
 }
 
 export default Mappage
