@@ -56,7 +56,7 @@ const Wip = () => {
                     </div>
                     <div className='col-md-8' style={{ position: 'relative'}}>
                         <Map selectPosition={selectPosition}/>
-                        <SmallSearchBar selectPosition={selectPosition} setSelectPosition={setSelectPosition} />
+                        <SmallSearchBar/>
                     </div>
                 </div>
                 <div className='row wip-bottom-row'>

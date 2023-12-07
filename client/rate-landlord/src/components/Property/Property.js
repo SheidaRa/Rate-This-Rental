@@ -3,7 +3,7 @@ import "./Property.css"
 import Rating from '../Rating/Rating'
 import WriteReview from '../WriteReview/WriteReview'
 
-const Property = ({ address, city, state, zip, loard, rating, location, responsiveness, maintenance, rent}) => {
+const Property = ({ house_number, road, city, state, postcode, loard, rating, location, responsiveness, maintenance, rent}) => {
 
   const [isVisible, setVisibility] = useState(false);
 
@@ -18,8 +18,8 @@ const Property = ({ address, city, state, zip, loard, rating, location, responsi
     <>
       <div className='row'>
         <div className='col-md-12 col-6'>
-          <div className='row address'><h2>{address}</h2></div>
-          <div className='row '><p>{city}, {state} {zip}</p></div>
+          <div className='row address'><h2>{house_number} {road}</h2></div>
+          <div className='row '><p>{city}, {state} {postcode}</p></div>
           <div className='row'><p>Current Land loard: {loard}</p></div>
         </div>
         <div className='col-md-12 col-6'>

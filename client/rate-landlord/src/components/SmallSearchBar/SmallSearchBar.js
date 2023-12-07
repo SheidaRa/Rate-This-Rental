@@ -15,8 +15,7 @@ const params = {
   addressdetails: "addressdetails",
 };
 
-export default function SearchBox(props) {
-  const { selectPosition, setSelectPosition } = props;
+export default function SearchBox() {
   const [searchText, setSearchText] = useState("");
   const [listPlace, setListPlace] = useState([]);
 
