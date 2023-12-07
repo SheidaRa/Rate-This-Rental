@@ -75,6 +75,7 @@ export default function SearchBox() {
                   button
                   onClick={() => {
                     navigate(`/wip/${item.place_id}`);
+                    setListPlace([]);
                   }}
                 >
                   <ListItemIcon>
