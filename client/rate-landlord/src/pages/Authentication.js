@@ -277,7 +277,7 @@ const Authentication = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       {resource_owner ? (
         <div>
           <p id="user">{resource_owner.email}</p>
@@ -285,25 +285,29 @@ const Authentication = () => {
           <SignOutButton onSignOut={signOut} />
         </div>
       ) : (
-        <div>
-          {isSigningUp ? (
-            <SignUpForm onSignUp={signUp} />
-          ) : (
-            <SignInForm onSignIn={signIn} />
-          )}
-          <div className="sign-inup-contianer">
-          <p className="sign-inup-section">
-            {isSigningUp
-              ? "Already have an account?"
-              : "Don't have an account?"}
-            <button onClick={handleSwitchForm}>
-              {isSigningUp ? "Sign In" : "Sign Up"}
-            </button>
-          </p>
-          </div>
+        <div className='authentication-wrapper'>
+          <div>
+            {isSigningUp ? (
+              <SignUpForm onSignUp={signUp} />
+            ) : (
+              <SignInForm onSignIn={signIn} />
+            )}
+            <div className='col-lg-4 offset-lg-7 col-md-5 offset-md-7'>
+              <div className="sign-inup-contianer">
+              <p className="sign-inup-section">
+                {isSigningUp
+                  ? "Already have an account?"
+                  : "Don't have an account?"}
+                <button onClick={handleSwitchForm}>
+                  {isSigningUp ? "Sign In" : "Sign Up"}
+                </button>
+              </p>
+              </div>
+            </div>
 
-          <SignOutButton  onSignOut={signOut} />
+            <SignOutButton  onSignOut={signOut} />
         </div>
+      </div>
       )}
     </div>
   );
