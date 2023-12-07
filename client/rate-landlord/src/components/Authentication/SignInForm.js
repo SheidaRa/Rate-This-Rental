@@ -47,8 +47,8 @@ const SignInForm = ({ onSignIn }) => {
   };
 
   return (
-    <div className="auth-row">
-    <div className='col-md-4 offset-md-1'>
+    <div className="row">
+    <div className='col-lg-4 offset-lg-1 col-md-5 '>
         <h1 >
           We are a community
         </h1>
@@ -61,7 +61,7 @@ const SignInForm = ({ onSignIn }) => {
       </div>
       
       
-      <div className='auth-col-md-4 offset-md-2'>    
+      <div className='col-lg-4 offset-lg-2 col-md-5 offset-md-2'>    
       <form id="sign_in_form" onSubmit={handleSignIn} className="signin-form">
       <div className="auth-custom-card p-5">
 

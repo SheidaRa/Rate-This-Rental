@@ -115,17 +115,22 @@
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
+
+  .auth-custom-card {
+    margin-top: 2em;
+  }
+
   .auth-row {
     flex-direction: column;
     margin: 20px;
   }
 
-  .col-md-4 {
+  /*.col-md-4 {
     flex: 0 0 100%;
     max-width: 100%;
     margin-right: 0;
     margin-bottom: 20px;
-  }
+  }*/
 
   h1 {
     font-size: 1.5rem;
