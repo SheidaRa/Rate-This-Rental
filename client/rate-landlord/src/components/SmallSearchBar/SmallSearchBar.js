@@ -6,6 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import { FaSearch } from "react-icons/fa";
 import "./SmallSearchBar.css";
+import { useNavigate } from 'react-router-dom';
 
 const NOMINATIM_BASE_URL = "https://nominatim.openstreetmap.org/search?";
 const params = {
@@ -18,6 +19,8 @@ export default function SearchBox(props) {
   const { selectPosition, setSelectPosition } = props;
   const [searchText, setSearchText] = useState("");
   const [listPlace, setListPlace] = useState([]);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -66,6 +69,7 @@ export default function SearchBox(props) {
           polygon_geojson: 0,
         };
         const queryString = new URLSearchParams(params).toString();
+        console.log("QueryString: " + queryString)
         const requestOptions = {
           method: "GET",
           redirect: "follow",
@@ -90,8 +94,7 @@ export default function SearchBox(props) {
                 <ListItem
                   button
                   onClick={() => {
-                    setSelectPosition(item);
-                    setListPlace([]);
+                    navigate(`/wip/${item.place_id}`);
                   }}
                 >
                   <ListItemIcon>
