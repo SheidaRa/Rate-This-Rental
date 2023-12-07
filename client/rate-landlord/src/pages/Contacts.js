@@ -39,7 +39,7 @@ function Contacts() {
                       </div>
                     </div>
                     <div className="col-lg-12">
-                      <button type="submit" className="btn btn-danger-gradiant mt-3 text-white border-0 px-3 py-2"><span> SUBMIT</span></button>
+                      <button type="submit" className="submit-btn"><span> SUBMIT</span></button>
                     </div>
                   </div>
                 </form>
