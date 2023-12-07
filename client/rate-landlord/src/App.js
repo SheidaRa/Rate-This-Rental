@@ -11,20 +11,13 @@ import Wip from './pages/Wip';
 import Authentication from './pages/Authentication';
 import LandlordProfile from './pages/LandlordProfile';
 
-import { SearchBar } from './components/Searchbar/SearchBar';
-import { SearchResultsList } from './components/Searchbar/SearchResultsList';
 import "./components/Searchbar/SearchBar";
 import "./components/Searchbar/SearchResultsList.css";
 import "./components/Searchbar/SearchResult.css";
-import InfoCard from './components/Cards/InfoCard';
-import Button from './components/Button/Button';
 import UserProfile from './pages/UserProfile';
 import Mappage from './pages/Map';
 
 function App() {
-
-  const [results, setResults] = useState([]);
-
 
   return (
     <div className="App">
