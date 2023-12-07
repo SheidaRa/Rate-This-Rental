@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import Slider from '../components/Slider/Slider'
 import Property from '../components/Property/Property'
 import Nearby from '../components/Nearby/Nearby'
 import Review from '../components/Review/Review'
 import Map from '../components/Map/Map'
 import SmallSearchBar from '../components/SmallSearchBar/SmallSearchBar'
+import { useParams } from 'react-router-dom';
 
 import "../components/Searchbar/SearchBar.css"
 import "../components/Searchbar/SearchResultsList.css"
@@ -12,7 +13,35 @@ import "../components/Searchbar/SearchResult.css"
 
 const Wip = () => {
 
+    const { id } = useParams();
+
     const [selectPosition, setSelectPosition] = useState(null);
+    const placeId = id.toString();
+    const [placeDetails, setPlaceDetails] = useState(null);
+
+    useEffect(() => {
+        const fetchPlaceDetails = async () => {
+          try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
+            const data = await response.json();
+            setPlaceDetails(data);
+          } catch (error) {
+            console.error('Error fetching place details:', error);
+          }
+        };
+    
+        fetchPlaceDetails();
+      }, [placeId]);
+    
+    useEffect(() => {
+        if (placeDetails) {
+          setSelectPosition(placeDetails);
+        }
+      }, [placeDetails]);
+
+      if (!placeDetails) {
+        return <p>Loading place details...</p>;
+      }
 
   return (
     <>
@@ -23,10 +52,10 @@ const Wip = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-4'>
-                        <Property address={'1600 Grand Ave.'} city={'St Paul'} state={'MN'} zip={'55105'} loard={'John doe'} rating={'4.5'} location={4} responsiveness={4} maintenance={4} rent={4}/>
+                        <Property house_number={placeDetails.addresstags.housenumber} road={placeDetails.addresstags.street} city={placeDetails.addresstags.city} state={placeDetails.addresstags.state} postcode={placeDetails.addresstags.postcode} loard={'John doe'} rating={'4.5'} location={4} responsiveness={4} maintenance={4} rent={4}/>
                     </div>
                     <div className='col-md-8' style={{ position: 'relative'}}>
-                        <Map selectPosition={selectPosition} />
+                        <Map selectPosition={selectPosition}/>
                         <SmallSearchBar selectPosition={selectPosition} setSelectPosition={setSelectPosition} />
                     </div>
                 </div>
