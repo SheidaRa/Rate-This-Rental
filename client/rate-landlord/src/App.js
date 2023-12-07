@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/contact" element={<Contacts />} />
           <Route exact path="/map" element={<Mappage />} />
 
-          <Route exact path="/wip" element={<Wip />} />
+          <Route exact path="/wip/:id" element={<Wip />} />
           <Route exact path="/signin" element={<Authentication />} />
           <Route exact path="/llp" element={<LandlordProfile/>} />
           <Route exact path="/Up" element={<UserProfile/>} />
