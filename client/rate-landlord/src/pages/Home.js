@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchBar } from '../components/Searchbar/SearchBar';
+import SearchBar from '../components/Searchbar/SearchBar';
 import {SearchResultsList} from '../components/Searchbar/SearchResultsList';
 import { useState } from "react";
 import InfoCard from '../components/Cards/InfoCard';
@@ -19,8 +19,7 @@ const Home = () => {
     <>
     <section className='home-search'>
     <div className='container'>
-    <SearchBar setResults={setResults} />
-      {results && results.length > 0 && <SearchResultsList results={results} />}
+    <SearchBar />
     </div>
   </section>
 
