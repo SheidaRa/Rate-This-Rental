@@ -50,6 +50,11 @@
   justify-content: end;
 }
 
+.navigation-links {
+  display: flex;
+  align-items: center;
+}
+
 .navigation-links .navbar-toggler {
   color: #fff;
   border-color: #fff;
