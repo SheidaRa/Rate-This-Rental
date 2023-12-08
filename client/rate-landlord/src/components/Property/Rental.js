@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
-// import { API_URL } from '../../constants';
+import { API_URL } from '../../constants';
 
 const Rental = () => {
   const { id } = useParams(); // Access the rentalId from the URL
@@ -9,8 +9,6 @@ const Rental = () => {
   const [ landlord, setLandlord ] = useState(null);
 
   const [ isLoading, setIsLoading ] = useState(true);
-
-  const API_URL = "http://localhost:3001/";
 
   useEffect(() => {
     fetch(`${API_URL}/api/v1/rentals/${id}`)
