@@ -10,7 +10,7 @@ const Review = ({location, responsiveness, maintenance, rent, date, lord, text})
 
     useEffect(() => {
         const datePassed = moment(date, 'MM/DD/YYYY');
-
+        
         const difference = moment().diff(datePassed);
 
         const formattedDuration = moment.duration(difference).humanize();

@@ -1,4 +1,4 @@
-class RentalsController < ApplicationController
+class Api::V1::RentalsController < ApplicationController
   before_action :set_rental, only: %i[ show update destroy ]
 
   # GET /rentals
@@ -10,7 +10,10 @@ class RentalsController < ApplicationController
 
   # GET /rentals/1
   def show
-    render json: @rental
+    @rental = Rental.find(params[:id])
+    @address = Address.find(@rental.address_id)
+    @landlord = Landlord.find(@rental.landlord_id)
+    render json: { rental: @rental, address: @address, landlord: @landlord }
   end
 
   # POST /rentals
@@ -18,7 +21,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
 
     if @rental.save
-      render json: @rental, status: :created, location: @rental
+      render json: @rental, status: :created, location: api_v1_rental_url(@rental)
     else
       render json: @rental.errors, status: :unprocessable_entity
     end
