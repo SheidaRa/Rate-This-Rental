@@ -97,6 +97,12 @@ nav a.navbar-brand, .navbar-nav a.nav-link, .navbar-nav a.nav-link.active {
   }
 }
 
+.searching, .noResults {
+  background-color: #fff;
+  padding: 1em;
+  position: absolute;
+}
+
 /* For screens between 576px and 767px */
 @media screen and (min-width: 576px) and (max-width: 767px) {
   .search-bar {
