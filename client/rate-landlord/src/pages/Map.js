@@ -1,6 +1,7 @@
 import Map from '../components/Map/Map';
 import { useState } from "react";
 import SmallSearchBar from '../components/SmallSearchBar/SmallSearchBar'
+import SearchBox from '../components/SmallSearchBar/SmallSearchBar';
 
 
 import "../components/Searchbar/SearchBar.css"
@@ -13,12 +14,11 @@ const Mappage = () => {
 
   return (
 <div className='col-md-8 '>
-<Map selectPosition={selectPosition} />
-<section className='home-search'>
-    <div className='container'>
-      <SmallSearchBar selectPosition={selectPosition} setSelectPosition={setSelectPosition} />
+<div className='map-container'>
+      <SearchBox selectPosition={selectPosition} setSelectPosition={setSelectPosition} />
     </div>
-  </section>
+<Map selectPosition={selectPosition} />
+    
 </div>  )
 }
 
