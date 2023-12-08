@@ -18,11 +18,16 @@ const params = {
 export default function SearchBox() {
   const [searchText, setSearchText] = useState("");
   const [listPlace, setListPlace] = useState([]);
+  const [searching, setSearching] = useState(false);
+  const [noResult, setNoresult] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setListPlace([]);
+    setSearching(true);
+    setNoresult(false);
   }
 
   return (
@@ -36,6 +41,10 @@ export default function SearchBox() {
         value={searchText}
         onChange={(event) => {
           setSearchText(event.target.value);
+          if (event.target.value == ""){
+            setListPlace([]);
+            setNoresult(false);
+          }
         }}
       />
       <button
@@ -56,17 +65,49 @@ export default function SearchBox() {
         };
         fetch(`${NOMINATIM_BASE_URL}${queryString}`, requestOptions)
           .then((response) => response.text())
-          .then((result) => {
-            console.log(JSON.parse(result));
-            setListPlace(JSON.parse(result));
+          .then(async(result) => {
+            const parsedResult = JSON.parse(result);
+
+
+            if (Array.isArray(parsedResult) && parsedResult.length > 0) {
+
+              const validResults = [];
+          
+
+              const fetchAndTest = async (place) => {
+                const placeId = place?.place_id;
+          
+                const detailsResponse = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
+                const detailsResult = await detailsResponse.json();
+          
+                console.log("Details result:", detailsResult);
+          
+                if (detailsResult?.addresstags?.housenumber && detailsResult?.addresstags?.street && detailsResult?.addresstags?.city) {
+                  validResults.push(place);
+                }
+              };
+          
+              await Promise.all(parsedResult.map(fetchAndTest));
+          
+              setListPlace(validResults);
+              setSearching(false);
+              console.log(listPlace);
+              if (validResults.length == 0) {
+                setNoresult(true);
+              }
+            } else {
+              console.log("Invalid results:", parsedResult);
+            }
           })
-          .catch((err) => console.log("err: ", err));
+          .catch((err) => console.log("Fetch error:", err));
       }}
       >
         <FaSearch />
       </button>
     </div>
   </form>
+  {searching && <p className="searching">Searching for corresponding addresses...</p>}
+  {noResult && <p className="noResults">No results found...</p>}
   <List component="nav" aria-label="main mailbox folders">
           {Array.isArray(listPlace) && listPlace.map((item) => {
             return (
