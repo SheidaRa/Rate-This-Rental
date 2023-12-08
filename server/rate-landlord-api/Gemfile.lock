@@ -130,6 +130,9 @@ GEM
       i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -148,6 +151,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
+    multi_xml (0.6.0)
     mutex_m (0.2.0)
     net-imap (0.4.6)
       date
@@ -165,6 +169,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
+    open_street_map (1.2.2)
+      httparty (~> 0.17)
     orm_adapter (0.5.0)
     pg (1.5.4)
     psych (5.1.1.1)
@@ -244,6 +250,7 @@ DEPENDENCIES
   devise (~> 4.9)
   devise-api (~> 0.1.3)
   faker
+  open_street_map
   pg (~> 1.1)
   puma (>= 5.0)
   rack-cors
