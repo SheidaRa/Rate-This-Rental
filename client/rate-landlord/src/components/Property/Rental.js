@@ -5,8 +5,6 @@ import { API_URL } from '../../constants';
 const Rental = () => {
   const { id } = useParams(); // Access the rentalId from the URL
   const [ rental, setRental ] = useState(null);
-  const [ address, setAddress ] = useState(null);
-  const [ landlord, setLandlord ] = useState(null);
 
   const [ isLoading, setIsLoading ] = useState(true);
 
@@ -14,9 +12,7 @@ const Rental = () => {
     fetch(`${API_URL}/api/v1/rentals/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setRental(data.rental);
-        setAddress(data.address);
-        setLandlord(data.landlord);
+        setRental(data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -31,6 +27,8 @@ const Rental = () => {
   if (!rental) {
     return <p>No rental found.</p>;
   }
+
+  const { address, landlord } = rental;
 
   return (
     <div className="rental-details">
