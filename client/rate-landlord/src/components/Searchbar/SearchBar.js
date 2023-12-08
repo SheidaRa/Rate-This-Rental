@@ -97,6 +97,8 @@ export default function SearchBox() {
               }
             } else {
               console.log("Invalid results:", parsedResult);
+              setNoresult(true);
+              setSearching(false);
             }
           })
           .catch((err) => console.log("Fetch error:", err));
