@@ -1,12 +1,6 @@
 /* LandlordProfile.css */
 
 /* Container styles */
-.profile-container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 
 .profile-container  h1 {
   font-size: 25px;
@@ -93,6 +87,7 @@
 .profile-card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .profile-card .card-title {
