@@ -9,6 +9,7 @@ const LandlordProfile = () => {
     properties: [
       { name: 'Property 1', image: 'https://via.placeholder.com/150' },
       { name: 'Property 2', image: 'https://via.placeholder.com/150' },
+      
       // Add more properties as needed
     ],
     aboutMe: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
@@ -18,10 +19,10 @@ const LandlordProfile = () => {
   };
 
   return (
-    <div className="profile-container">
+    <div className="container profile-container">
     <div className="profile-info">
       <div className="row mt-4">
-        <div className="col-md-4">
+        <div className="col-md-4 offset-md-1">
           <img src={profile.profilePic} alt="Profile" className="img-fluid" />
           <div className="mt-3">
           <h1>{profile.name}'s Profile</h1>
@@ -32,14 +33,18 @@ const LandlordProfile = () => {
             <h5>Number of Reviews: {profile.numberOfReviews}</h5>
             <h5>Average Rating: {profile.averageRating}</h5>
         </div>
-        </div>
+      </div>
 
-        <div className="col-md-10">
+      <div className='row'>
+        <div className="col-md-10 offset-md-1">
           <h2>About Me</h2>
           <p>{profile.aboutMe}</p>
         </div>
       </div>
-        <div className="col-md-10">
+
+    </div>
+      <div className='row'>
+        <div className="col-md-10 offset-md-1">
           <h2>Properties</h2>
           <div className="row">
             {profile.properties.map((property, index) => (
@@ -55,6 +60,7 @@ const LandlordProfile = () => {
           </div>
         </div>
       </div>
+    </div>
 
 
 
