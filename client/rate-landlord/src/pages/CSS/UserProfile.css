@@ -1,0 +1,124 @@
+/* LandlordProfile.css */
+
+/* Container styles */
+
+.profile-container  h1 {
+  font-size: 25px;
+  color: #000;
+  margin-bottom: 10px;
+  
+}
+
+/* Profile pic styles */
+.img-fluid {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  background-color: #000;
+  border-radius: 50%;
+  border: 2px solid #fff; /* Example border */
+  /* Add any additional styles as needed */
+}
+
+/* Number of properties, reviews, and rating styles */
+.profile-container h5 {
+  font-weight: bold;
+  color: #000;
+  font-size: 15px;
+
+}
+
+.profile-container .profile-info .col-md-4{
+  line-height: 1.6;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  margin-right: 8px;
+
+}
+
+
+/* About me section styles */
+.profile-container .col-md-6 {
+  line-height: 1.6;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+
+}
+
+.profile-container .col-md-10  {
+  line-height: 1.6;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+
+}
+
+
+.profile-container  h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  /* Add any additional styles as needed */
+}
+
+.profile-container . p {
+  font-size: 16px;
+  color: #555;
+  /* Add any additional styles as needed */
+}
+
+/* Properties section styles */
+.profile-container .profile-card {
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  padding: 10px;
+
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.profile-card .card-title {
+  font-size: 15px;
+  margin-bottom: 8px;
+  margin-top: 10px;
+
+  /* Add any additional styles as needed */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  /* Adjusting columns for smaller screens */
+  .col-md-4,
+  .col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Adjusting font size for smaller screens */
+  header h1 {
+    font-size: 24px;
+  }
+
+  .profile-container .col-md-8 h2 {
+    font-size: 18px;
+  }
+
+  .profile-container .col-md-8 p {
+    font-size: 14px;
+  }
+}
