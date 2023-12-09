@@ -1,9 +1,34 @@
-.map-container {
+.map-page-container{
 
-    padding: 7rem;
-  }
+  padding:3rem;
+
+}
 .map-search-container {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 5px 5px;
+  border-radius: 10px;
 
-    padding-top: 1.5rem;
+
+}
+
+.map-col-container {
+  background-color:#ffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  padding:1rem;
+
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .map-search-container {
+    /* Adjust styles for smaller screens if necessary */
+    padding: 10px;
   }
-  
+  .map-col-container {
+    /* Adjust styles for smaller screens if necessary */
+    margin-top: 10px;
+  }
+}
+
