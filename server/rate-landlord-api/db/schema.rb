@@ -47,8 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 7) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,7 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 7) do
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "rental_id", null: false
-    t.bigint "profile_id", null: false
+    t.bigint "user_id", null: false
     t.text "title"
     t.text "content"
     t.integer "location"
@@ -75,8 +74,8 @@ ActiveRecord::Schema[7.1].define(version: 7) do
     t.integer "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_reviews_on_profile_id"
     t.index ["rental_id"], name: "index_reviews_on_rental_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -103,6 +102,6 @@ ActiveRecord::Schema[7.1].define(version: 7) do
   add_foreign_key "profiles", "users"
   add_foreign_key "rentals", "addresses"
   add_foreign_key "rentals", "landlords"
-  add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "rentals"
+  add_foreign_key "reviews", "users"
 end

@@ -1,12 +1,11 @@
 class Api::V1::RentalsController < ApplicationController
-  before_action :set_rental, only: %i[ show update destroy ]
+  skip_before_action :verify_authenticity_token, raise: false
+  before_action :set_rental, only: %i[ show update destroy ], :authenticate_devise_api_token!
 
   # GET /rentals
   def index
-    # @rentals = Rental.includes(:address, :landlord).all
     @rentals = Rental.all
-    # render json: @rentals
-    render json: @rentals, include: [:address, :landlord]
+    render json: @rentals, include: [:address, :landlord, :reviews]
   end
 
   # GET /rentals/1

@@ -1,3 +1,8 @@
+// search by address, if address match
+// https://github.com/alexreisner/geocoder#advanced-model-configuration use this to find longtitude and lat
+// Feed long lat to leaflet
+
+
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import { API_URL } from '../../constants';
