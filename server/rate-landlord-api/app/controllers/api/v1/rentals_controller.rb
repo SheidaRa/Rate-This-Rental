@@ -3,7 +3,9 @@ class Api::V1::RentalsController < ApplicationController
 
   # GET /rentals
   def index
-    @rentals = Rental.includes(:address, :landlord).all
+    # @rentals = Rental.includes(:address, :landlord).all
+    @rentals = Rental.all
+    # render json: @rentals
     render json: @rentals, include: [:address, :landlord]
   end
 
