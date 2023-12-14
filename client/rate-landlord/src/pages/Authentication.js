@@ -150,12 +150,13 @@ import SignUpForm from '../components/Authentication/SignUpForm';
 import SignOutButton from '../components/Authentication/SignOutButton';
 import './CSS/Authentication.css'
 
-const API_URL = "http://localhost:3001/users/tokens";
+const API_URL = "http://localhost:3001";
 
 const Authentication = () => {
   const [access_token, setAccessToken] = useState(null);
   const [refresh_token, setRefreshToken] = useState(localStorage.getItem('refresh_token') || null);
   const [resource_owner, setResourceOwner] = useState(null);
+  const [profile_name, setProfileName] = useState(null);
   const [isSigningUp, setIsSigningUp] = useState(false); // New state variable to track whether the user is signing up
 
   useEffect(() => {
@@ -175,13 +176,19 @@ const Authentication = () => {
     setResourceOwner(data.resource_owner);
   };
 
-  const signUp = async (email, password, passwordConfirm) => {
+  const handleProfileResponse = async (response) => {
+    const data = await response.json();
+    localStorage.setItem('profile_name', JSON.stringify(data.name));
+    setProfileName(data.name);
+  }
+
+  const signUp = async (name, email, password, passwordConfirm) => {
     if (password !== passwordConfirm) {
       alert('Passwords do not match');
       return;
     }
 
-    const response = await fetch(`${API_URL}/sign_up`, {
+    const response = await fetch(`${API_URL}/users/tokens/sign_up`, {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -191,11 +198,18 @@ const Authentication = () => {
     });
 
     await handleAuthResponse(response);
-    userSession();
+
+    await userSession();
+
+    // const user_id = localStorage.getItem('resource_owner').id
+    // if (name !== null) {
+
+    // }
+
   };
 
   const signIn = async (email, password) => {
-    const response = await fetch(`${API_URL}/sign_in`, {
+    const response = await fetch(`${API_URL}/users/tokens/sign_in`, {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -228,7 +242,7 @@ const Authentication = () => {
     }
 
     try {
-      const response = await fetch(`${API_URL}/refresh`, {
+      const response = await fetch(`${API_URL}/users/tokens/refresh`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -252,6 +266,19 @@ const Authentication = () => {
     if (nullOrUndefined(access_token)) {
       return;
     }
+
+    const profile = await fetch(`${API_URL}/api/v1/profiles`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: "Quang",
+      }),
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${access_token}`
+        },
+    });
+
+    await handleProfileResponse(profile);
 
     const response = await fetch('http://localhost:3001/pages/restricted', {
       method: 'GET',

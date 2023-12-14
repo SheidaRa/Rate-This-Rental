@@ -47,15 +47,15 @@ import React, { useState } from "react";
 import './signin&up.css'
 
 const SignUpForm = ({ onSignUp }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [name, setName] = useState('');
+  // const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    onSignUp(email, password, passwordConfirm);
+    onSignUp(name, email, password, passwordConfirm);
   };
 
   return (
@@ -78,10 +78,10 @@ const SignUpForm = ({ onSignUp }) => {
                   <input
                     className="auth-custom-input mb-4"
                     type="text"
-                    name="firstName"
+                    name="name"
                     placeholder="Name (Optional)"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
               <input
                 className="auth-custom-input mb-4"

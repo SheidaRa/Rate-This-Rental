@@ -4,7 +4,8 @@ class Apt::V1::ReviewsController < ApplicationController
 
   def create
     @review = @rental.reviews.new(review_params)
-    @review.user = current_devise_api_user
+    devise_api_token = current_devise_api_token
+    @review.user = devise_api_token.resource_owner
     redirect_to @rental
   end
 
