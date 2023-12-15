@@ -10,6 +10,11 @@
     z-index: 2147483647
 }
 
+.write-review-title {
+    justify-content: space-between;
+    display: flex;
+}
+
 .write-review {
     background-color: var(--color1);
     color: #fff;
@@ -19,6 +24,36 @@
     border-radius: 10px;
     margin: 0;
     padding: 1em;
+}
+
+.write-review .radio-star {
+    height: auto;
+    
+}
+
+.rate-row svg {
+    color: #FACE38
+}
+
+.write-review .rate-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.write-review .form-check-inline {
+    padding-left: 0;
+    margin-right: 0;
+}
+
+.write-review button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 40px;
+    position: absolute;
+    width: auto;
+    right: 0;
+    top: 0;
 }
 
 .write-review textarea {

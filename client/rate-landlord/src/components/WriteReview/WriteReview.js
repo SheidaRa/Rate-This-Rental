@@ -1,8 +1,35 @@
 import React, {useState} from 'react'
 import "./WriteReview.css"
 import Rating from '../Rating/Rating'
+import { IoMdClose } from "react-icons/io";
+import { IoIosStar } from 'react-icons/io';
+import { IoIosStarOutline } from "react-icons/io";
 
 const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
+
+    const [location, setLocation] = useState(1)
+
+    const handleLocationClick = (iconIndex) => {
+        setLocation(iconIndex);
+      };
+
+    const [maintenance, setMaintenance] = useState(1)
+
+    const handleMaintenanceClick = (iconIndex) => {
+        setMaintenance(iconIndex);
+    };
+
+    const [responsiveness, setResponsiveness] = useState(1)
+
+    const handleResponsivenessClick = (iconIndex) => {
+        setResponsiveness(iconIndex);
+        };
+
+    const [rent, setRent] = useState(1)
+
+    const handleRentClick = (iconIndex) => {
+        setRent(iconIndex);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,9 +40,10 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
     <div className='write-review-container' style={{display: isVisible ? 'block' : 'none' }}>
         <div className='write-review'>
             <div className='row'>
-                <div className='col-12 write-review-title'>
+                <div className='col-6 write-review-title offset-5'>
                     <p>Write a review</p>
                 </div>
+                <button onClick={() => resetVisibility()}><IoMdClose /></button>
                 <form onSubmit={handleSubmit}>
                     <div className='form-group row'>
                         <label for="landlord-select" className='col-sm-3 col-6 col-form-label'>Land Lord name</label>
@@ -28,12 +56,157 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
                     <textarea id='review' placeholder='Write a review...'></textarea> 
                     <div className='row form-rating-row'>
                         <div className='col-md-6'>
-                            <div className='row rating'><Rating label='Location' grade={4} /></div>
-                            <div className='row rating'><Rating label='Maintenance' grade={4} /></div>
+                            
+                            <div className='rate-row'>
+                                <span>Location</span>
+                                <div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleLocationClick(1)}>
+                                        <input type="radio" id='location-1' name='location' checked={location === 1} style={{ display: 'none' }} readOnly />
+                                        <IoIosStar />
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleLocationClick(2)}>
+                                        <input type="radio" id='location-2' name='location' checked={location === 2} style={{ display: 'none' }} readOnly />
+                                        {location >= 2 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleLocationClick(3)}>
+                                        <input type="radio" id='location-3' name='location' checked={location === 3} style={{ display: 'none' }} readOnly />
+                                        {location >= 3 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleLocationClick(4)}>
+                                        <input type="radio" id='location-4' name='location' checked={location === 4} style={{ display: 'none' }} readOnly />
+                                        {location >= 4 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleLocationClick(5)}>
+                                        <input type="radio" id='location-5' name='location' checked={location === 5} style={{ display: 'none' }} readOnly />
+                                        {location >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='rate-row'>
+                                <span>Maintenance</span>
+                                <div>
+
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleMaintenanceClick(1)}>
+                                        <input type="radio" id='maintenance-1' name='maintenance' checked={maintenance === 1} style={{ display: 'none' }} readOnly />
+                                        <IoIosStar />
+                                    </label>
+                                    </div>
+
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleMaintenanceClick(2)}>
+                                        <input type="radio" id='maintenance-2' name='maintenance' checked={maintenance === 2} style={{ display: 'none' }} readOnly />
+                                        {maintenance >= 2 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleMaintenanceClick(3)}>
+                                        <input type="radio" id='maintenance-3' name='maintenance' checked={maintenance === 3} style={{ display: 'none' }} readOnly />
+                                        {maintenance >= 3 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleMaintenanceClick(4)}>
+                                        <input type="radio" id='maintenance-4' name='maintenance' checked={maintenance === 4} style={{ display: 'none' }} readOnly />
+                                        {maintenance >= 4 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleMaintenanceClick(5)}>
+                                        <input type="radio" id='maintenance-5' name='maintenance' checked={maintenance === 5} style={{ display: 'none' }} readOnly />
+                                        {maintenance >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
                         <div className='col-md-6'>
-                            <div className='row rating'><Rating label='Responsiveness' grade={4} /></div>
-                            <div className='row rating'><Rating label='Rent and Fees' grade={4} /></div>
+                            <div className='rate-row'>
+                                <span>Responsiveness</span>
+                                <div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleResponsivenessClick(1)}>
+                                        <input type="radio" id='responsiveness-1' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
+                                        <IoIosStar />
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleResponsivenessClick(2)}>
+                                        <input type="radio" id='responsiveness-2' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
+                                        {responsiveness >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleResponsivenessClick(3)}>
+                                        <input type="radio" id='responsiveness-3' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
+                                        {responsiveness >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleResponsivenessClick(4)}>
+                                        <input type="radio" id='responsiveness-4' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
+                                        {responsiveness >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleResponsivenessClick(5)}>
+                                        <input type="radio" id='responsiveness-5' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
+                                        {responsiveness >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='rate-row'>
+                                <span>Rent and Fees</span>
+                                <div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleRentClick(1)}>
+                                        <input type="radio" id='rent-1' name='rent' checked={rent === 1} style={{ display: 'none' }} readOnly />
+                                        <IoIosStar />
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleRentClick(2)}>
+                                        <input type="radio" id='rent-2' name='rent' checked={rent === 2} style={{ display: 'none' }} readOnly />
+                                        {rent >= 2 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleRentClick(3)}>
+                                        <input type="radio" id='rent-3' name='rent' checked={rent === 3} style={{ display: 'none' }} readOnly />
+                                        {rent >= 3 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleRentClick(4)}>
+                                        <input type="radio" id='rent-4' name='rent' checked={rent === 4} style={{ display: 'none' }} readOnly />
+                                        {rent >= 4 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                    <div className='form-check form-check-inline'>
+                                    <label onClick={() => handleRentClick(5)}>
+                                        <input type="radio" id='rent-5' name='rent' checked={rent === 5} style={{ display: 'none' }} readOnly />
+                                        {rent >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                    </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='row'>
