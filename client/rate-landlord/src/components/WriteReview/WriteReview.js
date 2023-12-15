@@ -7,25 +7,31 @@ import { IoIosStarOutline } from "react-icons/io";
 
 const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
 
-    const [location, setLocation] = useState(1)
+    const [textArea, setTextArea] = useState("");
+
+    const handleTextAreaChange = (event) => {
+        setTextArea(event.target.value);
+    }
+
+    const [location, setLocation] = useState(3)
 
     const handleLocationClick = (iconIndex) => {
         setLocation(iconIndex);
       };
 
-    const [maintenance, setMaintenance] = useState(1)
+    const [maintenance, setMaintenance] = useState(3)
 
     const handleMaintenanceClick = (iconIndex) => {
         setMaintenance(iconIndex);
     };
 
-    const [responsiveness, setResponsiveness] = useState(1)
+    const [responsiveness, setResponsiveness] = useState(3)
 
     const handleResponsivenessClick = (iconIndex) => {
         setResponsiveness(iconIndex);
         };
 
-    const [rent, setRent] = useState(1)
+    const [rent, setRent] = useState(3)
 
     const handleRentClick = (iconIndex) => {
         setRent(iconIndex);
@@ -33,9 +39,23 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        resetVisibility()
+        resetVisibility();
+        setLocation(3);
+        setMaintenance(3);
+        setResponsiveness(3);
+        setRent(3);
+        setTextArea("");
     }
+
+    const handleClose = () => {
+        resetVisibility();
+        setLocation(3);
+        setMaintenance(3);
+        setResponsiveness(3);
+        setRent(3);
+        setTextArea("");
+    }
+
   return (
     <div className='write-review-container' style={{display: isVisible ? 'block' : 'none' }}>
         <div className='write-review'>
@@ -43,7 +63,7 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
                 <div className='col-6 write-review-title offset-5'>
                     <p>Write a review</p>
                 </div>
-                <button onClick={() => resetVisibility()}><IoMdClose /></button>
+                <button onClick={() => handleClose()}><IoMdClose /></button>
                 <form onSubmit={handleSubmit}>
                     <div className='form-group row'>
                         <label for="landlord-select" className='col-sm-3 col-6 col-form-label'>Land Lord name</label>
@@ -53,7 +73,7 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
                             </select>
                         </div>
                     </div>
-                    <textarea id='review' placeholder='Write a review...'></textarea> 
+                    <textarea value={textArea} onChange={handleTextAreaChange} id='review' placeholder='Write a review...'></textarea> 
                     <div className='row form-rating-row'>
                         <div className='col-md-6'>
                             
@@ -141,26 +161,26 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
                                 <div>
                                     <div className='form-check form-check-inline'>
                                     <label onClick={() => handleResponsivenessClick(1)}>
-                                        <input type="radio" id='responsiveness-1' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
+                                        <input type="radio" id='responsiveness-1' name='responsiveness' checked={responsiveness === 1} style={{ display: 'none' }} readOnly />
                                         <IoIosStar />
                                     </label>
                                     </div>
                                     <div className='form-check form-check-inline'>
                                     <label onClick={() => handleResponsivenessClick(2)}>
-                                        <input type="radio" id='responsiveness-2' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
-                                        {responsiveness >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                        <input type="radio" id='responsiveness-2' name='responsiveness' checked={responsiveness === 2} style={{ display: 'none' }} readOnly />
+                                        {responsiveness >= 2 ? <IoIosStar /> : <IoIosStarOutline/>}
                                     </label>
                                     </div>
                                     <div className='form-check form-check-inline'>
                                     <label onClick={() => handleResponsivenessClick(3)}>
-                                        <input type="radio" id='responsiveness-3' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
-                                        {responsiveness >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                        <input type="radio" id='responsiveness-3' name='responsiveness' checked={responsiveness === 3} style={{ display: 'none' }} readOnly />
+                                        {responsiveness >= 3 ? <IoIosStar /> : <IoIosStarOutline/>}
                                     </label>
                                     </div>
                                     <div className='form-check form-check-inline'>
                                     <label onClick={() => handleResponsivenessClick(4)}>
-                                        <input type="radio" id='responsiveness-4' name='responsiveness' checked={responsiveness === 5} style={{ display: 'none' }} readOnly />
-                                        {responsiveness >= 5 ? <IoIosStar /> : <IoIosStarOutline/>}
+                                        <input type="radio" id='responsiveness-4' name='responsiveness' checked={responsiveness === 4} style={{ display: 'none' }} readOnly />
+                                        {responsiveness >= 4 ? <IoIosStar /> : <IoIosStarOutline/>}
                                     </label>
                                     </div>
                                     <div className='form-check form-check-inline'>
