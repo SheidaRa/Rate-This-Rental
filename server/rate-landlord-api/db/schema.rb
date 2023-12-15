@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 7) do
     t.text "city"
     t.text "zip"
     t.text "street"
+    t.text "number"
     t.text "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

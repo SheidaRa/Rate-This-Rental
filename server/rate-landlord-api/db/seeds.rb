@@ -12,26 +12,48 @@ Rental.destroy_all
 Landlord.destroy_all
 Address.destroy_all
 
+require 'csv'
 
-# Create 20 posts
-20.times do
+CSV.foreach(Rails.root.join('lib/seed_csv/ramsey_addresses.csv'), headers: true) do |row|
+  address = Address.new(
+    state: "MN",
+    city: row["city"],
+    zip: row["postcode"],
+    street: row["street"],
+    number: row["number"],
+    unit: row["unit"],
+  )
+  address.save
+
   landlord = Landlord.new(
     name: Faker::FunnyName.name,
   )
   landlord.save
 
-  address = Address.new(
-    state: Faker::Address.state,
-    city: Faker::Address.city,
-    zip: Faker::Address.zip_code,
-    street: Faker::Address.street_address,
-    unit: Faker::Number.number,
-  )
-  address.save
-
   Rental.create(
     landlord_id: landlord.id,
     address_id: address.id,
   )
-
 end
+
+# # Create 20 posts
+# 20.times do
+#   landlord = Landlord.new(
+#     name: Faker::FunnyName.name,
+#   )
+#   landlord.save
+
+#   address = Address.new(
+#     state: Faker::Address.state,
+#     city: Faker::Address.city,
+#     zip: Faker::Address.zip_code,
+#     street: Faker::Address.street_address,
+#     unit: Faker::Number.number,
+#   )
+#   address.save
+
+#   Rental.create(
+#     landlord_id: landlord.id,
+#     address_id: address.id,
+#   )
+# end

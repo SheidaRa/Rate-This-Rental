@@ -40,7 +40,7 @@ const Rental = () => {
       <h2>Rental Details</h2>
       <div className="address">
         <h3>Address</h3>
-        <p>{address.street}</p>
+        <p>{address.number} {address.street}</p>
         {address.unit && <p>Unit: {address.unit}</p>}
         <p>{address.city}, {address.state} {address.zip}</p>
       </div>
