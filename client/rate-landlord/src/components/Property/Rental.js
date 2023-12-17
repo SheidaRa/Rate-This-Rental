@@ -1,56 +1,72 @@
-// search by address, if address match
-// https://github.com/alexreisner/geocoder#advanced-model-configuration use this to find longtitude and lat
-// Feed long lat to leaflet
-
-
-import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom'
-import { API_URL } from '../../constants';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { API_URL } from "../../constants";
 
 const Rental = () => {
-  const { id } = useParams(); // Access the rentalId from the URL
-  const [ rental, setRental ] = useState(null);
+// Get place_id from URL parameter
+const { placeId } = useParams();
 
-  const [ isLoading, setIsLoading ] = useState(true);
+// State variables
+const [rental, setRental] = useState(null);
+const [isLoading, setIsLoading] = useState(true);
+const [errorMessage, setErrorMessage] = useState(null);
 
-  useEffect(() => {
-    fetch(`${API_URL}/api/v1/rentals/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
+// Fetch rental details on mount
+useEffect(() => {
+  const fetchRental = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`${API_URL}/api/v1/rentals/${placeId}`);
+      const data = await response.json();
+      if (data) {
         setRental(data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [id]); // Only re-fetch when rentalId changes
+      } else if (response.status === 204) {
+        // No rental found, send CREATE request
+        const createResponse = await fetch(`${API_URL}/api/v1/rentals`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ placeId }),
+        });
+        if (createResponse.ok) {
+          const newRental = await createResponse.json();
+          setRental(newRental);
+        } else {
+          setErrorMessage("Failed to create rental!");
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Error fetching rental details");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  fetchRental();
+}, []);
 
-  if (!rental) {
-    return <p>No rental found.</p>;
-  }
-
-  const { address, landlord } = rental;
-
+// Render loading indicator or rental details
+if (isLoading) {
+  return <p>Loading...</p>;
+} else if (errorMessage) {
+  return <p>{errorMessage}</p>;
+} else if (rental) {
   return (
-    <div className="rental-details">
-      <h2>Rental Details</h2>
-      <div className="address">
-        <h3>Address</h3>
-        <p>{address.number} {address.street}</p>
-        {address.unit && <p>Unit: {address.unit}</p>}
-        <p>{address.city}, {address.state} {address.zip}</p>
-      </div>
-      <div className="landlord">
-        <h3>Landlord</h3>
-        <p>{landlord.name}</p>
-      </div>
-      {/* Add additional rental details here */}
+    <div>
+      <h2>Rental details for place ID: {placeId}</h2>
+      <p>Landlord: {rental.landlord}</p>
+      {/* Add more details to display based on your rental schema */}
     </div>
   );
+} else {
+  // No rental found and creation failed, display error message and offer retry
+  return (
+    <div>
+      <p>No rental found for place ID: {placeId}</p>
+      <p>Creating rental failed. Please try again later.</p>
+    </div>
+  );
+}
 };
 
 export default Rental;

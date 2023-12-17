@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   get 'pages/restricted'
   namespace :api do
     namespace :v1 do
-      resources :rentals do
+      resources :addresses
+      resources :rentals, param: :place_id do
         resources :reviews
       end
-      resources :profiles do
-        resources :reviews
-      end
+      # get '/rentals/:place_id', to: 'rentals#show'
+      resources :profiles
+        # resources :reviews
+    # end
     end
   end
 

@@ -1,8 +1,8 @@
 class CreateRentals < ActiveRecord::Migration[7.1]
   def change
     create_table :rentals do |t|
-      t.references :address, null: false, foreign_key: true
-      t.references :landlord, null: false, foreign_key: true
+      t.integer :place_id, null: false
+      t.text :landlord
 
       t.timestamps
     end

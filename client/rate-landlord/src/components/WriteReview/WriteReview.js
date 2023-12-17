@@ -4,13 +4,16 @@ import Rating from '../Rating/Rating'
 import { IoMdClose } from "react-icons/io";
 import { IoIosStar } from 'react-icons/io';
 import { IoIosStarOutline } from "react-icons/io";
+import { useNavigate } from 'react-router-dom'
 
-const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
+import { API_URL } from '../../constants';
 
-    const [textArea, setTextArea] = useState("");
+const WriteReview = ({ place_id, rental_id, isVisible, setVisibility, resetVisibility }) => {
+    const navigate = useNavigate()
+    const [content, setContent] = useState("");
 
-    const handleTextAreaChange = (event) => {
-        setTextArea(event.target.value);
+    const handleContentChange = (event) => {
+        setContent(event.target.value);
     }
 
     const [location, setLocation] = useState(3)
@@ -37,14 +40,43 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
         setRent(iconIndex);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         resetVisibility();
+        const access_token = localStorage.getItem('access_token')
+        const reviewData = {
+            content,
+            location,
+            maintenance,
+            responsiveness,
+            rent,
+        };
+
+        try {
+            const response = await fetch(`${API_URL}/api/v1/rentals/${place_id}/reviews`, {
+              method: "POST",
+              body: JSON.stringify(reviewData),
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${access_token}`
+              },
+            })
+
+            if (response.ok) {
+                navigate(`/wip/${place_id}`)
+              }
+         } catch (error) {
+            console.error(error);
+            alert("An error occurred. Please try again later.");
+          }
+
+
         setLocation(3);
         setMaintenance(3);
         setResponsiveness(3);
         setRent(3);
-        setTextArea("");
+        setContent("");
+        window.location.reload(false);
     }
 
     const handleClose = () => {
@@ -53,7 +85,7 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
         setMaintenance(3);
         setResponsiveness(3);
         setRent(3);
-        setTextArea("");
+        setContent("");
     }
 
   return (
@@ -73,10 +105,10 @@ const WriteReview = ({ isVisible, setVisibility, resetVisibility }) => {
                             </select>
                         </div>
                     </div>
-                    <textarea value={textArea} onChange={handleTextAreaChange} id='review' placeholder='Write a review...'></textarea> 
+                    <textarea value={content} onChange={handleContentChange} id='review' placeholder='Write a review...'></textarea>
                     <div className='row form-rating-row'>
                         <div className='col-md-6'>
-                            
+
                             <div className='rate-row'>
                                 <span>Location</span>
                                 <div>

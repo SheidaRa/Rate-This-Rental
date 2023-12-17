@@ -1,17 +1,38 @@
 class Api::V1::RentalsController < ApplicationController
   skip_before_action :verify_authenticity_token, raise: false
-  before_action :set_rental, only: %i[ show update destroy ], :authenticate_devise_api_token!
+  before_action :authenticate_devise_api_token!, only: %i[ create show update destroy ]
+
+  # :set_rental,
 
   # GET /rentals
   def index
-    @rentals = Rental.all
-    render json: @rentals, include: [:address, :landlord, :reviews]
+    # place_id = params[:place_id]
+
+    # if place_id.present?
+    #   @rentals = Rental.find_by(place_id: place_id)
+    # else
+      @rentals = Rental.all
+    # end
+    render json: @rentals, include: [:reviews]
   end
 
-  # GET /rentals/1
+  # GET /rentals?place_id=123
   def show
-    @rental = Rental.includes(:address, :landlord).find(params[:id])
-    render json: @rental, include: [:address, :landlord]
+    place_id = params[:place_id]
+
+    # Find existing rental
+    @rental = Rental.find_by(place_id: place_id)
+
+    if @rental
+      # Show existing rental
+      render json: @rental, include: [:landlord]
+    else
+      # Create and show new rental
+      new_rental = Rental.create!(place_id: place_id)
+      render json: new_rental, status: :created
+    end
+    # @rental = Rental.includes(:place_id, :landlord).find(params[:id])
+    # render json: @rental, include: [:place_id, :landlord]
   end
 
   # POST /rentals
@@ -47,6 +68,6 @@ class Api::V1::RentalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rental_params
-      params.require(:rental).permit(:address_id, :landlord_id)
+      params.require(:rental).permit(:place_id)
     end
 end

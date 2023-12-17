@@ -4,13 +4,14 @@ import moment from 'moment';
 import Rating from '../Rating/Rating';
 import "./Review.css";
 
-const Review = ({location, responsiveness, maintenance, rent, date, lord, text}) => {
+const Review = ({placeId, userId, location, responsiveness, maintenance, rent, date, lord, content}) => {
 
     const [timePast, setTimePast] = useState('');
 
     useEffect(() => {
-        const datePassed = moment(date, 'MM/DD/YYYY');
-        
+        const datePassed = moment(date).utc().format('MM/DD/YYYY');
+        // const datePassed = moment(date, 'MM/DD/YYYY');
+
         const difference = moment().diff(datePassed);
 
         const formattedDuration = moment.duration(difference).humanize();
@@ -59,7 +60,7 @@ const Review = ({location, responsiveness, maintenance, rent, date, lord, text})
             </div>
             <div className='col-md-9'>
                 <p>
-                    {text}
+                    {content}
                 </p>
             </div>
         </div>

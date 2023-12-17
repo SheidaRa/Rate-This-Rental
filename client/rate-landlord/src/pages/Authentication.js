@@ -145,6 +145,7 @@
 
 // export default Authentication;
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SignInForm from '../components/Authentication/SignInForm';
 import SignUpForm from '../components/Authentication/SignUpForm';
 import SignOutButton from '../components/Authentication/SignOutButton';
@@ -158,7 +159,7 @@ const Authentication = () => {
   const [resource_owner, setResourceOwner] = useState(null);
   const [profile_name, setProfileName] = useState(null);
   const [isSigningUp, setIsSigningUp] = useState(false); // New state variable to track whether the user is signing up
-
+  const navigate = useNavigate();
   useEffect(() => {
     userSession();
   }, []);
@@ -171,6 +172,7 @@ const Authentication = () => {
     const data = await response.json();
     localStorage.setItem('resource_owner', JSON.stringify(data.resource_owner));
     localStorage.setItem('refresh_token', data.refresh_token);
+    localStorage.setItem('access_token', data.token);
     setAccessToken(data.token);
     setRefreshToken(data.refresh_token);
     setResourceOwner(data.resource_owner);
@@ -180,6 +182,23 @@ const Authentication = () => {
     const data = await response.json();
     localStorage.setItem('profile_name', JSON.stringify(data.name));
     setProfileName(data.name);
+  }
+
+  const handleProfileCreate = async (name) => {
+    const access_token = localStorage.getItem('access_token')
+    const profile = await fetch(`${API_URL}/api/v1/profiles`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name
+      }),
+      headers: {
+         'Content-Type': 'application/json',
+         Authorization: `Bearer ${access_token}`
+        },
+    });
+
+    await handleProfileResponse(profile);
+    localStorage.removeItem('access_token');
   }
 
   const signUp = async (name, email, password, passwordConfirm) => {
@@ -197,13 +216,30 @@ const Authentication = () => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    await handleAuthResponse(response);
+    // if (name !== "") {
+      await handleAuthResponse(response)
+      await userSession()
+      await handleProfileCreate(name);
+      navigate(`/`)
+    // } else {
+    //   await handleAuthResponse(response);
+    //   userSession();
+    // }
 
-    await userSession();
 
-    // const user_id = localStorage.getItem('resource_owner').id
     // if (name !== null) {
+    //   const profile = await fetch(`${API_URL}/api/v1/profiles`, {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //       name
+    //     }),
+    //     headers: {
+    //        'Content-Type': 'application/json',
+    //        Authorization: `Bearer ${access_token}`
+    //       },
+    //   });
 
+    //   await handleProfileResponse(profile);
     // }
 
   };
@@ -220,20 +256,25 @@ const Authentication = () => {
 
     await handleAuthResponse(response);
     userSession();
+    navigate(`/`)
   };
 
   const signOut = () => {
     console.log('Logging out');
     resetTokens();
     userSession();
+    navigate(`/`)
   };
 
   const resetTokens = () => {
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('resource_owner');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('profile_name');
     setAccessToken(null);
     setRefreshToken(null);
     setResourceOwner(null);
+    setProfileName(null);
   };
 
   const requestNewAccessToken = async () => {
@@ -267,18 +308,18 @@ const Authentication = () => {
       return;
     }
 
-    const profile = await fetch(`${API_URL}/api/v1/profiles`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name: "Quang",
-      }),
-      headers: {
-         'Content-Type': 'application/json',
-         Authorization: `Bearer ${access_token}`
-        },
-    });
+    // const profile = await fetch(`${API_URL}/api/v1/profiles`, {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     name: "Quang",
+    //   }),
+    //   headers: {
+    //      'Content-Type': 'application/json',
+    //      Authorization: `Bearer ${access_token}`
+    //     },
+    // });
 
-    await handleProfileResponse(profile);
+    // await handleProfileResponse(profile);
 
     const response = await fetch('http://localhost:3001/pages/restricted', {
       method: 'GET',

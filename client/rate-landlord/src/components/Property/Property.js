@@ -3,7 +3,7 @@ import "./Property.css"
 import Rating from '../Rating/Rating'
 import WriteReview from '../WriteReview/WriteReview'
 
-const Property = ({ house_number, road, city, state, postcode, loard, rating, location, responsiveness, maintenance, rent}) => {
+const Property = ({ house_number, road, city, state, postcode, place_id, rental_id, lord, rating, location, responsiveness, maintenance, rent}) => {
 
   const [isVisible, setVisibility] = useState(false);
 
@@ -20,7 +20,7 @@ const Property = ({ house_number, road, city, state, postcode, loard, rating, lo
         <div className='col-md-12 col-6'>
           <div className='row address'><h2>{house_number} {road}</h2></div>
           <div className='row '><p>{city}, {state} {postcode}</p></div>
-          <div className='row'><p>Current Land loard: {loard}</p></div>
+          <div className='row'><p>Current Land lord: {lord}</p></div>
         </div>
         <div className='col-md-12 col-6'>
           <div className='row overall'><img src='/photos/icons/star.png'></img><span>{rating}</span></div>
@@ -45,7 +45,7 @@ const Property = ({ house_number, road, city, state, postcode, loard, rating, lo
                   </button>
               </span>
           </div>
-        <WriteReview isVisible={isVisible} setVisibility={setVisibility} resetVisibility={resetVisibility}/>
+        <WriteReview place_id={place_id} rental_id={rental_id} isVisible={isVisible} setVisibility={setVisibility} resetVisibility={resetVisibility}/>
     </>
   )
 }

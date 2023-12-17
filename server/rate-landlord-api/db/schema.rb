@@ -21,8 +21,12 @@ ActiveRecord::Schema[7.1].define(version: 7) do
     t.text "street"
     t.text "number"
     t.text "unit"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "rental_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["rental_id"], name: "index_addresses_on_rental_id"
   end
 
   create_table "devise_api_tokens", force: :cascade do |t|
@@ -56,23 +60,20 @@ ActiveRecord::Schema[7.1].define(version: 7) do
   end
 
   create_table "rentals", force: :cascade do |t|
-    t.bigint "address_id", null: false
-    t.bigint "landlord_id", null: false
+    t.integer "place_id", null: false
+    t.text "landlord"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id"], name: "index_rentals_on_address_id"
-    t.index ["landlord_id"], name: "index_rentals_on_landlord_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "rental_id", null: false
     t.bigint "user_id", null: false
-    t.text "title"
     t.text "content"
     t.integer "location"
     t.integer "maintenance"
     t.integer "responsiveness"
-    t.integer "cost"
+    t.integer "rent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["rental_id"], name: "index_reviews_on_rental_id"
@@ -103,8 +104,6 @@ ActiveRecord::Schema[7.1].define(version: 7) do
   end
 
   add_foreign_key "profiles", "users"
-  add_foreign_key "rentals", "addresses"
-  add_foreign_key "rentals", "landlords"
   add_foreign_key "reviews", "rentals"
   add_foreign_key "reviews", "users"
 end

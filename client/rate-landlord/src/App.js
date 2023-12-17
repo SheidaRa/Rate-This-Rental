@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/llp" element={<LandlordProfile/>} />
           <Route exact path="/Up" element={<UserProfile/>} />
 
-          <Route path="/rentals/:id" element={<Rental />} />
+          <Route path="/rentals/:placeId" element={<Rental />} />
 
         </Routes>
       </Router>

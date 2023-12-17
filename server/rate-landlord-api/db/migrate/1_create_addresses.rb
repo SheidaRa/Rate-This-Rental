@@ -7,6 +7,9 @@ class CreateAddresses < ActiveRecord::Migration[7.1]
       t.text :street
       t.text :number
       t.text :unit
+      t.float :latitude
+      t.float :longitude
+      t.references :rental
 
       t.timestamps
     end
