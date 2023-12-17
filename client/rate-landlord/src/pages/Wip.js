@@ -148,9 +148,11 @@ const Wip = () => {
                     <div className='col-md-8 '>
 
                         <p>{reviewList.length} Reviews</p>
-                        {reviewList.map((review) => (
-                          <Review location={review.location} responsiveness={review.responsiveness} maintenance={review.maintenance} rent={review.rent} date={review.created_at} lord={"John doe"} content={review.content}/>
-                        ))}
+                        {reviewList.length > 0 &&
+                          reviewList.map((review) => (
+                            <Review location={review.location} responsiveness={review.responsiveness} maintenance={review.maintenance} rent={review.rent} date={review.created_at} lord={"John doe"} content={review.content}/>
+                          ))}
+
                         <Review location={4} responsiveness={4} maintenance={3} rent={3} date={"12/02/2023"} lord={"John doe"} content={'Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your choice. Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your...See more...'}/>
                         <Review location={4} responsiveness={4} maintenance={3} rent={4} date={"11/02/2023"} lord={"John doe"} content={'Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences Without revealing your identity. Your voice, your choice. Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your choice. Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ndlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences ...See more...'}/>
                     </div>
