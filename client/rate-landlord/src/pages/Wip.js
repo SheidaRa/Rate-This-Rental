@@ -24,6 +24,45 @@ const Wip = () => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [reviewList, setReviewList] = useState([]);
 
+    const [location, setLocation] = useState(0);
+    const [responsiveness, setResponsiveness] = useState(0);
+    const [maintenance, setMaintenance] = useState(0);
+    const [rent, setRent] = useState(0);
+
+    const [overall, setOverall] = useState(0)
+
+    useEffect(() => {
+      if (reviewList.length > 0) {
+        let totalLocation = 0;
+        let totalResponsiveness = 0;
+        let totalMaintenance = 0;
+        let totalRent = 0;
+    
+        reviewList.forEach((review) => {
+          totalLocation += review.location;
+          totalResponsiveness += review.responsiveness;
+          totalMaintenance += review.maintenance;
+          totalRent += review.rent;
+        });
+    
+        const averageLocation = totalLocation / reviewList.length;
+        const averageResponsiveness = totalResponsiveness / reviewList.length;
+        const averageMaintenance = totalMaintenance / reviewList.length;
+        const averageRent = totalRent / reviewList.length;
+
+        const roundedAverageLocation = Math.round(averageLocation);
+        const roundedAverageMaintenance = Math.round(averageMaintenance);
+        const roundedAverageResponsiveness = Math.round(averageResponsiveness);
+        const roundedAverageRent = Math.round(averageRent);
+
+        setLocation(roundedAverageLocation);  
+        setResponsiveness(roundedAverageResponsiveness); 
+        setMaintenance(roundedAverageMaintenance); 
+        setRent(roundedAverageRent); 
+        setOverall(( Number(averageLocation + averageMaintenance + averageResponsiveness + averageRent) / 4).toFixed(2));
+      }
+    }, [reviewList]);
+    
 
     useEffect(() => {
         const fetchPlaceDetails = async () => {
@@ -94,7 +133,7 @@ const Wip = () => {
           };
 
           fetchReviewList();
-  }, []);
+  }, [placeId]);
 
 
 
@@ -119,7 +158,7 @@ const Wip = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-4'>
-                        <Property house_number={placeDetails.addresstags.housenumber} road={placeDetails.addresstags.street} city={placeDetails.addresstags.city} state={placeDetails.addresstags.state} postcode={placeDetails.addresstags.postcode} place_id={placeId} rental_id={rental.id} lord={'John doe'} rating={'4.5'} location={4} responsiveness={4} maintenance={4} rent={4}/>
+                        <Property house_number={placeDetails.addresstags.housenumber} road={placeDetails.addresstags.street} city={placeDetails.addresstags.city} state={placeDetails.addresstags.state} postcode={placeDetails.addresstags.postcode} place_id={placeId} rental_id={rental.id} lord={'John doe'} rating={overall} location={location} responsiveness={responsiveness} maintenance={maintenance} rent={rent}/>
                     </div>
                     <div className='col-md-8' style={{ position: 'relative'}}>
                         <Map selectPosition={selectPosition}/>
@@ -147,14 +186,12 @@ const Wip = () => {
                     </div>
                     <div className='col-md-8 '>
 
-                        <p>{reviewList.length} Reviews</p>
+                        <p>{reviewList.length > 0 ? reviewList.length + " Reviews" : "No reviews yet"}</p>
                         {reviewList.length > 0 &&
                           reviewList.map((review) => (
                             <Review location={review.location} responsiveness={review.responsiveness} maintenance={review.maintenance} rent={review.rent} date={review.created_at} lord={"John doe"} content={review.content}/>
                           ))}
 
-                        <Review location={4} responsiveness={4} maintenance={3} rent={3} date={"12/02/2023"} lord={"John doe"} content={'Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your choice. Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your...See more...'}/>
-                        <Review location={4} responsiveness={4} maintenance={3} rent={4} date={"11/02/2023"} lord={"John doe"} content={'Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences Without revealing your identity. Your voice, your choice. Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your choice. Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ndlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences ...See more...'}/>
                     </div>
                 </div>
             </div>
