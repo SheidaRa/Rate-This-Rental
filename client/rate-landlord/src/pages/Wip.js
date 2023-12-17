@@ -61,6 +61,13 @@ const Wip = () => {
         setRent(roundedAverageRent); 
         setOverall(( Number(averageLocation + averageMaintenance + averageResponsiveness + averageRent) / 4).toFixed(2));
       }
+      else {
+        setLocation(0);
+        setMaintenance(0);
+        setResponsiveness(0);
+        setRent(0);
+        setOverall(0);
+      }
     }, [reviewList]);
     
 
