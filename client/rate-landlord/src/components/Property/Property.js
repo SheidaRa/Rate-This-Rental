@@ -23,7 +23,7 @@ const Property = ({ house_number, road, city, state, postcode, place_id, rental_
           <div className='row'><p>Current Land lord: {lord}</p></div>
         </div>
         <div className='col-md-12 col-6'>
-          <div className='row overall'><img src='/photos/icons/star.png'></img><span>{rating}</span></div>
+          <div className='row overall'><img src='/photos/icons/star.png'></img><span>{rating > 0 ? rating : "Not rated yet"}</span></div>
         </div>
       </div>
       <div className='row'><p>Rating Breakdown</p></div>
