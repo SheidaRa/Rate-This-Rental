@@ -1,36 +1,49 @@
+/* Resources.css */
+
+/* Main container styles */
 .resource-page {
     max-width: 800px;
     margin: 0 auto;
     margin-top: 3rem;
     padding: 20px;
+    border-radius:10px;
+
   }
   
+  /* Heading styles */
   .resource-page h2 {
     color: #388087;
     margin-top: 20px;
     margin-bottom: 30px;
+    
+  
   }
   
+  /* Paragraph styles */
   .resource-page p {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
-  .resource-page .faq ul {
-    list-style-type: none;
-    padding-left: 0;
+  /* Search input style */
+  .resource-page .form-control[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Add more styles as needed */
+  }
+
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 992px) {
+    .resource-page .col-lg-4 {
+      flex: 0 0 calc(50% - 20px);
+    }
   }
   
-  .resource-page .faq li p {
-    margin-bottom: 30px;
-    margin-top: 20px;
+  @media (max-width: 768px) {
+    .resource-page .col-lg-4 {
+      flex: 0 0 100%;
+    }
   }
-  
-  /* Styling for sections */
-  .resources {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-    margin-bottom: 40px;
-  }
-  
-  /* Additional styles specific to sections can be added here */
   
