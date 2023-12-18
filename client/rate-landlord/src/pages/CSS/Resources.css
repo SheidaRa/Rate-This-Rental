@@ -1,0 +1,36 @@
+.resource-page {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 20px;
+  }
+  
+  .resource-page h2 {
+    color: #388087;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .resource-page p {
+    margin-bottom: 20px;
+  }
+  
+  .resource-page .faq ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .resource-page .faq li p {
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+  
+  /* Styling for sections */
+  .resources {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+  
+  /* Additional styles specific to sections can be added here */
+  

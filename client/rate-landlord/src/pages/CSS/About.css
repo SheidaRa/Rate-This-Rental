@@ -1,33 +1,32 @@
-/* General styles */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
 .about-us-page {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 3rem;
   padding: 20px;
 }
 
-h2 {
+.about-us-page h2 {
   color: #388087;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
 }
 
-p {
+.about-us-page p {
   margin-bottom: 20px;
+
 }
 
-.faq ul {
+.about-us-page .faq ul {
   list-style-type: none;
   padding-left: 0;
+  
 }
 
-.faq ul li {
-  margin-bottom: 10px;
+.faq li p {
+  margin-bottom: 30px;
+  margin-top: 20px;
+
 }
 
 /* Styling for sections */
