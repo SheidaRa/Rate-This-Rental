@@ -18,7 +18,7 @@ function ResetCenterView(props) {
   useEffect(() => {
     if (selectPosition) {
       map.setView(
-        L.latLng(selectPosition?.geometry.coordinates[1], selectPosition?.geometry.coordinates[0]),
+        L.latLng(selectPosition?.lon, selectPosition?.lat),
         map.getZoom(),
         {
           animate: true
@@ -34,7 +34,7 @@ export default function Maps(props) {
 
   const { selectPosition } = props;
   const locationSelection = selectPosition
-    ? [selectPosition.geometry.coordinates[1], selectPosition.geometry.coordinates[0]]
+    ? [selectPosition.lon, selectPosition.lat]
     : null;
 
   useEffect(() => {
@@ -54,19 +54,19 @@ export default function Maps(props) {
       {selectPosition && (
         <Marker position={locationSelection} icon={icon}>
           <Popup>
-          {selectPosition.addresstags.housenumber && selectPosition.addresstags.street && (
+          {selectPosition.housenumber && selectPosition.street && (
     <>
-      {selectPosition.addresstags.housenumber} {selectPosition.addresstags.street}
+      {selectPosition.housenumber} {selectPosition.street}
       <br />
     </>
   )}
-  {(selectPosition.addresstags.city || selectPosition.addresstags.state || selectPosition.addresstags.postcode) && (
+  {(selectPosition.city || selectPosition.state || selectPosition.postcode) && (
     <>
-      {selectPosition.addresstags.city} {selectPosition.addresstags.state} {selectPosition.addresstags.postcode}
+      {selectPosition.city} {selectPosition.state} {selectPosition.postcode}
       <br />
     </>
   )}
-  {selectPosition.country_code.toUpperCase()}
+  {selectPosition.country_code}
           </Popup>
         </Marker>
       )}
