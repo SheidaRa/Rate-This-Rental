@@ -1,11 +1,10 @@
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { FaHouse } from "react-icons/fa6";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -15,71 +14,75 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='navbar navbar-expand-lg '>
-        <div className='container'>
-          <div className='row'>
-            <div className='navigation-links col-md-4 col-3'>
-              <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li className='nav-item'>
+      <nav className="navbar navbar-expand-lg ">
+        <div className="container">
+          <div className="row">
+            <div className="navigation-links col-md-4 col-3">
+              <ul className={click ? "nav-menu active" : "nav-menu"}>
+                <li className="nav-item">
                   <NavLink
-                        exact
-                        to='/about'
-                        className={({ isActive }) => 
-                          "nav-links " + (isActive ? "activated" : "")
-                        }
-                        id='about-us'
-                        onClick={closeMobileMenu}
-                      >
-                        About us
+                    exact
+                    to="/about"
+                    className={({ isActive }) =>
+                      "nav-links " + (isActive ? "activated" : "")
+                    }
+                    id="about-us"
+                    onClick={closeMobileMenu}
+                  >
+                    About us
                   </NavLink>
                 </li>
-                <li className='nav-item'>
+                <li className="nav-item">
                   <NavLink
-                        exact
-                        to='/contact'
-                        className={({ isActive }) => 
-                          "nav-links " + (isActive ? "activated" : "")
-                        }
-                        id='get-in-touch'
-                        onClick={closeMobileMenu}
-                      >
-                        Get in touch !
+                    exact
+                    to="/contact"
+                    className={({ isActive }) =>
+                      "nav-links " + (isActive ? "activated" : "")
+                    }
+                    id="get-in-touch"
+                    onClick={closeMobileMenu}
+                  >
+                    Get in touch !
                   </NavLink>
                 </li>
-                <li className='nav-item'>
+                <li className="nav-item">
                   <NavLink
-                        exact
-                        to='/resources'
-                        className={({ isActive }) => 
-                          "nav-links " + (isActive ? "activated" : "")
-                        }
-                        id='resource'
-                        onClick={closeMobileMenu}
-                      >
-                      Resources
+                    exact
+                    to="/resources"
+                    className={({ isActive }) =>
+                      "nav-links " + (isActive ? "activated" : "")
+                    }
+                    id="resource"
+                    onClick={closeMobileMenu}
+                  >
+                    Resources
                   </NavLink>
                 </li>
               </ul>
               <button
-            className='navbar-toggler'
-            type='button'
-            onClick={handleClick}
-          >
-            {click ? <FaTimes /> : <FaBars />}
-          </button>
+                className="navbar-toggler"
+                type="button"
+                onClick={handleClick}
+              >
+                {click ? <FaTimes /> : <FaBars />}
+              </button>
             </div>
-            <div className='col-md-4 col-6 landlord-logo'>
-              <Link to='/'>
-              <FaHouse /> Rate This Rental
+            <div className="col-md-4 col-6 landlord-logo">
+              <Link to="/">
+                <img
+                  src={"/photos/icons/logo.png"}
+                  alt="Your Logo"
+                  className="logo-img"
+                />
+                Rate This Rental
               </Link>
             </div>
-            <div className='col-md-4 col-3 sign-in'>
-              <Link to='/signin'>
-              Sign in <CgProfile />
+            <div className="col-md-4 col-3 sign-in">
+              <Link to="/signin">
+                Sign in <CgProfile />
               </Link>
             </div>
           </div>
-          
         </div>
       </nav>
     </>
@@ -87,9 +90,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
 
 // import React, { useState } from 'react';
 // import { Link } from "react-router-dom";
@@ -224,4 +224,3 @@ export default Navbar;
 // }
 
 // export default Navbar;
-
