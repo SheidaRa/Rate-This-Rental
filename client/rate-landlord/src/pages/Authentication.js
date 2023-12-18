@@ -198,7 +198,6 @@ const Authentication = () => {
     });
 
     await handleProfileResponse(profile);
-    localStorage.removeItem('access_token');
   }
 
   const signUp = async (name, email, password, passwordConfirm) => {
