@@ -17,6 +17,7 @@ import "./components/Searchbar/SearchResultsList.css";
 import "./components/Searchbar/SearchResult.css";
 import UserProfile from './pages/UserProfile';
 import Mappage from './pages/Map';
+import ResourcePage from './pages/Resources';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contacts />} />
-          <Route exact path="/map" element={<Mappage />} />
+          <Route exact path="/resources" element={<ResourcePage />} />
 
           <Route exact path="/wip/:id" element={<Wip />} />
           <Route exact path="/signin" element={<Authentication />} />

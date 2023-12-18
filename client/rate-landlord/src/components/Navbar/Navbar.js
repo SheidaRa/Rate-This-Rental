@@ -49,14 +49,14 @@ const Navbar = () => {
                 <li className='nav-item'>
                   <NavLink
                         exact
-                        to='/map'
+                        to='/resources'
                         className={({ isActive }) => 
                           "nav-links " + (isActive ? "activated" : "")
                         }
-                        id='map'
+                        id='resource'
                         onClick={closeMobileMenu}
                       >
-                        Map
+                      Resources
                   </NavLink>
                 </li>
               </ul>
