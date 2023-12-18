@@ -3,6 +3,7 @@ class Api::V1::ProfilesController < ApplicationController
   before_action :authenticate_devise_api_token!, only: [ :create, :show, :update, :destroy ]
 
   def index
+    
     render json: current_devise_api_user.profile, status: :ok
   end
 

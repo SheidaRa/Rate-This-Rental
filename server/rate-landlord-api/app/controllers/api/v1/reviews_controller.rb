@@ -12,6 +12,15 @@ class Api::V1::ReviewsController < ApplicationController
     render json: @reviews
   end
 
+  def by_user
+    user_id = params[:user_id]
+    
+    # Get all reviews posted by a single user
+    reviews = Review.where(user_id: user_id)
+    
+    render json: reviews, status: :ok
+  end
+
   def create
     # @rental = Rental.find(params[:rental_id])
     place_id = params[:rental_place_id]
