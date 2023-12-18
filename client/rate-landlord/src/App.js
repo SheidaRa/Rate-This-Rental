@@ -34,7 +34,7 @@ function App() {
 
           <Route exact path="/wip/:id" element={<Wip />} />
           <Route exact path="/signin" element={<Authentication />} />
-          <Route exact path="/llp" element={<LandlordProfile/>} />
+          <Route exact path="/llp/:id" element={<LandlordProfile/>} />
           <Route exact path="/Up" element={<UserProfile/>} />
 
           <Route path="/rentals/:placeId" element={<Rental />} />
