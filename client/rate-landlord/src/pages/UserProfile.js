@@ -124,7 +124,7 @@ setRentalList(uniqueRentalList);
               <div key={index} className="col-md-4 mb-3">
                 <Link  to={`/wip/${property.place_id}`}>
                 <div className="profile-card">
-                  <img src={property.image} className="card-img-top" alt={`Property ${index + 1}`} />
+                  <img src={`/photos/nearby/${index % 4 +1}.png`} className="card-img-top" alt={`Property ${index + 1}`} />
                   <div className="card-body">
                     <h5 className="card-title">{property.housenumber} {property.street}<br/>{property.city}</h5>
                   </div>

@@ -144,7 +144,7 @@ const [errorMessage, setErrorMessage] = useState(null)
     name: name,
     profilePic: 'https://via.placeholder.com/150',
     properties: properties,
-    aboutMe: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+    aboutMe: 'I am ' + name,
     numberOfProperties: properties.length,
     numberOfReviews: allReviews.length,
     averageRating: overall,
@@ -163,7 +163,7 @@ const [errorMessage, setErrorMessage] = useState(null)
         <div className="col-md-6">
             <h5>Number of Properties: {profile.numberOfProperties}</h5>
             <h5>Number of Reviews: {profile.numberOfReviews}</h5>
-            <h5>Average Rating: {profile.averageRating}</h5>
+            <h5>Average Rating: {isNaN(profile.averageRating) ? 'Not rated yet' : profile.averageRating }</h5>
         </div>
       </div>
 
@@ -183,7 +183,7 @@ const [errorMessage, setErrorMessage] = useState(null)
               <div key={index} className="col-md-4 mb-3">
                 <Link  to={`/wip/${property.place_id}`}>
                 <div className="profile-card">
-                  <img src={property.image} className="card-img-top" alt={`Property ${index + 1}`} />
+                  <img src={`/photos/nearby/${index % 4 +1}.png`} className="card-img-top" alt={`Property ${index + 1}`} />
                   <div className="card-body">
                     <h5 className="card-title">{property.housenumber} {property.street}<br/>{property.city}</h5>
                   </div>
