@@ -34,7 +34,7 @@ export default function SearchBox() {
     
     <>
     <form className="form-row" onSubmit={handleSubmit}> {/* Use Bootstrap's input group */}
-    <div style={{position:'relative'}}>
+    <div className='col-8 offset-2' style={{position:'relative'}}>
       <input
         type="text"
         placeholder="Enter an address, neighborhood, city, or ZIP code"
