@@ -101,6 +101,11 @@ class Api::V1::RentalsController < ApplicationController
           @rental.housenumber = params.dig(:rental, :housenumber)
           @rental.street = params.dig(:rental, :street)
           @rental.city = params.dig(:rental, :city)
+          @rental.state = params.dig(:rental, :state)
+          @rental.postcode = params.dig(:rental, :postcode)
+          @rental.lon = params.dig(:rental, :lon)
+          @rental.lat = params.dig(:rental, :lat)
+          @rental.country_code = params.dig(:rental, :country_code)
       
           # save update 
           if @rental.save
