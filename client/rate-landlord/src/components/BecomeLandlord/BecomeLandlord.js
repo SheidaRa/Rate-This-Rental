@@ -10,7 +10,7 @@ const handleBecomeLandlord = async (place_id, profile2) => {
   
     console.log("lord id " + lord_id);
   
-    // Utilisez la nouvelle route pour mettre à jour le champ landlord
+    // update landlord field
     const response = await fetch(`${API_URL}/api/v1/rentals/${place_id}/become_landlord`, {
       method: 'PUT',
       headers: {
@@ -25,7 +25,7 @@ const handleBecomeLandlord = async (place_id, profile2) => {
     if (response.ok) {
       console.log('Landlord updated successfully');
   
-      // Maintenant, vous pouvez créer une entrée dans la table Landlord
+      // create a landlord entry
       const createLandlordResponse = await fetch(`${API_URL}/api/v1/landlords`, {
         method: 'POST',
         headers: {
