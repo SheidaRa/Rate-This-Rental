@@ -189,12 +189,18 @@ const Wip = () => {
                 housenumber: placeDetails.addresstags.housenumber,
                 street: placeDetails.addresstags.street,
                 city: placeDetails.addresstags.city,  
+                postcode: placeDetails.addresstags.postcode,
+                state: placeDetails.addresstags.state,
+                country_code: placeDetails.country_code.toUpperCase(),
+                lon: placeDetails.geometry.coordinates[1],
+                lat: placeDetails.geometry.coordinates[0]
               },
             }),
           });
   
           if (response.ok) {
             console.log('Rental updated');
+            window.location.reload();
 
           } else {
             console.error('Error updating rental');
@@ -232,10 +238,10 @@ const resourceOwnerString = localStorage.getItem('resource_owner');
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-4'>
-                        <Property house_number={placeDetails.addresstags.housenumber} road={placeDetails.addresstags.street} city={placeDetails.addresstags.city} state={placeDetails.addresstags.state} postcode={placeDetails.addresstags.postcode} place_id={placeId} rental_id={rental.id} lord={rental.landlord} rating={overall} location={location} responsiveness={responsiveness} maintenance={maintenance} rent={rent}/>
+                        <Property house_number={rental.housenumber} road={rental.street} city={rental.city} state={rental.state} postcode={rental.postcode} place_id={placeId} rental_id={rental.id} lord={rental.landlord} rating={overall} location={location} responsiveness={responsiveness} maintenance={maintenance} rent={rent}/>
                     </div>
                     <div className='col-md-8' style={{ position: 'relative'}}>
-                        <Map selectPosition={selectPosition}/>
+                        <Map selectPosition={rental}/>
                         <SmallSearchBar/>
                     </div>
                 </div>
