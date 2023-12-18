@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Commissioner&family=Lato&family=Poppins&family=Roboto&display=swap');
 
 :root {
   --color1: #388087;
@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  font-family: 'Commissioner', sans-serif;
-  font-weight: 300;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 300 !important;
 }
 
 #root {
