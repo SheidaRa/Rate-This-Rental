@@ -5,8 +5,26 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :addresses
+      resources :landlords
+      
+      resources :rentals, param: :place_id do
+        member do
+          get 'similar', to: 'rentals#similar'
+          put 'update_address', to: 'rentals#update_address'
+          get 'by_id', to: 'rentals#by_id'
+          get 'by_landlord', to: 'rentals#by_landlord'
+        end
+      end
+      resources :reviews do
+        collection do
+          get 'by_user/:user_id', to: 'reviews#by_user'
+        end
+      end
       resources :rentals, param: :place_id do
         resources :reviews
+        member do
+          put 'become_landlord', to: 'rentals#become_landlord'
+        end
       end
       # get '/rentals/:place_id', to: 'rentals#show'
       resources :profiles
