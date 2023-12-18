@@ -112,7 +112,7 @@ setRentalList(uniqueRentalList);
           </div>
           </div>
         <div className="col-md-6">
-            <h5>Number of Reviews: {profile.numberOfReviews}</h5>
+            <h5>Number of Reviews: {profile.numberOfReviews ? profile.numberOfReviews : '0'}</h5>
         </div>
       </div>
     </div>
@@ -133,6 +133,7 @@ setRentalList(uniqueRentalList);
               </div>
               
             ))}
+            {profile.properties.length == 0 && <div className='col-12'>No properties reviewed</div>}
           </div>
         </div>
       </div>
