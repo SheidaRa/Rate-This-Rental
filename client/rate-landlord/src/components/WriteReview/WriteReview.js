@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { API_URL } from '../../constants';
 
-const WriteReview = ({ place_id, rental_id, isVisible, setVisibility, resetVisibility }) => {
+const WriteReview = ({ place_id, rental_id, isVisible, setVisibility, resetVisibility, loandlord_id, landlord_name }) => {
     const navigate = useNavigate()
     const [content, setContent] = useState("");
 
@@ -101,7 +101,7 @@ const WriteReview = ({ place_id, rental_id, isVisible, setVisibility, resetVisib
                         <label for="landlord-select" className='col-sm-3 col-6 col-form-label'>Land Lord name</label>
                         <div className='col-sm-9 col-6'>
                             <select name='landlord' id='landlord-select'>
-                                <option value="JonhDoe">John Doe</option>
+                                <option value="JonhDoe">{landlord_name}</option>
                             </select>
                         </div>
                     </div>

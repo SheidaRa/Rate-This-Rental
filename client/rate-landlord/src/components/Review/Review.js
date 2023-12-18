@@ -3,10 +3,14 @@ import "./Review.css";
 import moment from 'moment';
 import Rating from '../Rating/Rating';
 import "./Review.css";
+import { Link } from 'react-router-dom';
+import { API_URL } from '../../constants';
 
 const Review = ({placeId, userId, location, responsiveness, maintenance, rent, date, lord, content}) => {
 
     const [timePast, setTimePast] = useState('');
+    const [landlord_name, setLandlord_name] = useState('')
+    const [errorMessage, setErrorMessage] = useState(null)
 
     useEffect(() => {
         const datePassed = moment(date).utc().format('MM/DD/YYYY');
@@ -18,6 +22,29 @@ const Review = ({placeId, userId, location, responsiveness, maintenance, rent, d
 
         setTimePast(formattedDuration.charAt(0).toUpperCase() + formattedDuration.slice(1));
     }, [date]);
+
+    useEffect(() => {
+        const access_token = localStorage.getItem('access_token')
+        const fetchLandlord = async () => {
+            try {
+              const response = await fetch(`${API_URL}/api/v1/landlords/${lord}`, {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${access_token}`,
+                },
+              });
+              const data = await response.json();
+              setLandlord_name(data.name);   
+              console.log('name: ' + data.name);
+            } catch (error) {
+                console.error(error);
+                setErrorMessage("Error fetching profile details");
+              }
+            };
+      
+            fetchLandlord();
+      }, []);
 
   return (
     <div className='review'>
@@ -37,7 +64,7 @@ const Review = ({placeId, userId, location, responsiveness, maintenance, rent, d
                     <p>{timePast} ago</p>
                 </div>
                 <div className='row'>
-                    <p>Landlord: {lord}</p>
+                    <p>Landlord: <Link to={`/llp/${lord}`}>{landlord_name}</Link></p>
                 </div>
             </div>
         </div>

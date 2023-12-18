@@ -56,6 +56,7 @@ export default function SearchBox() {
           format: "json",
           addressdetails: 1,
           polygon_geojson: 0,
+          limit: 1
         };
         const queryString = new URLSearchParams(params).toString();
         console.log("QueryString: " + queryString)
@@ -82,7 +83,7 @@ export default function SearchBox() {
           
                 console.log("Details result:", detailsResult);
           
-                if (detailsResult?.addresstags?.housenumber && detailsResult?.addresstags?.street && detailsResult?.addresstags?.city) {
+                if (detailsResult?.addresstags?.housenumber && detailsResult?.addresstags?.street && detailsResult?.addresstags?.city ) {
                   validResults.push(place);
                 }
               };
