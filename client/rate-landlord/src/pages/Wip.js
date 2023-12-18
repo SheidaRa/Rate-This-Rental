@@ -28,6 +28,7 @@ const Wip = () => {
     const [responsiveness, setResponsiveness] = useState(0);
     const [maintenance, setMaintenance] = useState(0);
     const [rent, setRent] = useState(0);
+    const [nearby, setNearby] = useState([])
 
     const [overall, setOverall] = useState(0)
 
@@ -70,10 +71,37 @@ const Wip = () => {
       }
     }, [reviewList]);
     
+    useEffect(() => {
+      const access_token = localStorage.getItem('access_token');
+      const fetchNearbyRentals = async () => {
+        setIsLoading(true);
+        try {
+          const response = await fetch(`${API_URL}/api/v1/rentals/${placeId}/similar`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${access_token}`,
+            },
+          });
+          const data = await response.json();
+          setNearby(data);
+          console.log('Nearby rentals: ', data);
+        } catch (error) {
+          console.error(error);
+          setErrorMessage("Error fetching nearby rentals");
+        } finally {
+          setIsLoading(false);
+        }
+      };
+    
+      fetchNearbyRentals();
+    }, [placeId]); 
+    
 
     useEffect(() => {
         const fetchPlaceDetails = async () => {
           try {
+            console.log(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
             const response = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
             const data = await response.json();
             setPlaceDetails(data);
@@ -105,6 +133,7 @@ const Wip = () => {
               });
               const data = await response.json();
               setRental(data);
+              console.log('rental: ' + rental);
             } catch (error) {
                 console.error(error);
                 setErrorMessage("Error fetching rental details");
@@ -114,7 +143,7 @@ const Wip = () => {
             };
 
             fetchRental();
-    }, []);
+    }, [placeId]);
 
     useEffect(() => {
       const access_token = localStorage.getItem('access_token')
@@ -143,7 +172,43 @@ const Wip = () => {
   }, [placeId]);
 
 
+  useEffect(() => {
+    const access_token = localStorage.getItem('access_token');
+  
+    const updateAddress = async () => {
+      try {
+        if (rental && !rental.housenumber) {
+          const response = await fetch(`${API_URL}/api/v1/rentals/${placeId}/update_address`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${access_token}`,
+            },
+            body: JSON.stringify({
+              rental: {
+                housenumber: placeDetails.addresstags.housenumber,
+                street: placeDetails.addresstags.street,
+                city: placeDetails.addresstags.city,  
+              },
+            }),
+          });
+  
+          if (response.ok) {
+            console.log('Rental updated');
 
+          } else {
+            console.error('Error updating rental');
+          }
+        }
+      } catch (error) {
+        console.error(error);
+        setErrorMessage("Error occured updating rental");
+      }
+    };
+  
+    updateAddress();
+  }, [rental, placeId]);
+  
 
   if (!placeDetails) {
     return <p>Loading place details...</p>;
@@ -153,6 +218,8 @@ const Wip = () => {
     return <p>{errorMessage}</p>;
   }
 
+
+const resourceOwnerString = localStorage.getItem('resource_owner');
 
 
 
@@ -165,7 +232,7 @@ const Wip = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-4'>
-                        <Property house_number={placeDetails.addresstags.housenumber} road={placeDetails.addresstags.street} city={placeDetails.addresstags.city} state={placeDetails.addresstags.state} postcode={placeDetails.addresstags.postcode} place_id={placeId} rental_id={rental.id} lord={'John doe'} rating={overall} location={location} responsiveness={responsiveness} maintenance={maintenance} rent={rent}/>
+                        <Property house_number={placeDetails.addresstags.housenumber} road={placeDetails.addresstags.street} city={placeDetails.addresstags.city} state={placeDetails.addresstags.state} postcode={placeDetails.addresstags.postcode} place_id={placeId} rental_id={rental.id} lord={rental.landlord} rating={overall} location={location} responsiveness={responsiveness} maintenance={maintenance} rent={rent}/>
                     </div>
                     <div className='col-md-8' style={{ position: 'relative'}}>
                         <Map selectPosition={selectPosition}/>
@@ -176,18 +243,12 @@ const Wip = () => {
                     <div className='col-md-4'>
                             <p>Other nearby properties</p>
                         <div className='row'>
-                            <div className='col-md-12 col-6'>
-                                <Nearby image={"/photos/nearby/1.png"} address={'1513 Grand Ave.'} rating={4} reviews={23} />
+                          {nearby.length > 0 && 
+                            nearby.map((nearby_rental, index) => (
+                              <div key={index} className='col-md-12 col-6'>
+                                <Nearby image={`/photos/nearby/${index+1}.png`} housenumber={nearby_rental.housenumber} street={nearby_rental.street} place_id={nearby_rental.place_id} />
                             </div>
-                            <div className='col-md-12 col-6'>
-                                <Nearby image={"/photos/nearby/2.png"} address={'1513 Grand Ave.'} rating={4} reviews={23} />
-                            </div>
-                            <div className='col-md-12 col-6'>
-                                <Nearby image={"/photos/nearby/3.png"} address={'1513 Grand Ave.'} rating={4} reviews={23} />
-                            </div>
-                            <div className='col-md-12 col-6'>
-                                <Nearby image={"/photos/nearby/4.png"} address={'1513 Grand Ave.'} rating={4} reviews={23} />
-                            </div>
+                            ))}
                         </div>
 
                     </div>
@@ -196,7 +257,7 @@ const Wip = () => {
                         <p>{reviewList.length > 0 ? reviewList.length + " Reviews" : "No reviews yet"}</p>
                         {reviewList.length > 0 &&
                           reviewList.map((review) => (
-                            <Review location={review.location} responsiveness={review.responsiveness} maintenance={review.maintenance} rent={review.rent} date={review.created_at} lord={"John doe"} content={review.content}/>
+                            <Review location={review.location} responsiveness={review.responsiveness} maintenance={review.maintenance} rent={review.rent} date={review.created_at} lord={rental.landlord} content={review.content}/>
                           ))}
 
                     </div>
