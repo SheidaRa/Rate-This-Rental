@@ -63,7 +63,7 @@ const WriteReview = ({ place_id, rental_id, isVisible, setVisibility, resetVisib
             })
 
             if (response.ok) {
-                navigate(`/wip/${place_id}`)
+                window.location.reload();
               }
          } catch (error) {
             console.error(error);
