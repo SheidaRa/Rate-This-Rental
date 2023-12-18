@@ -90,7 +90,7 @@ const [errorMessage, setErrorMessage] = useState(null)
   
         const data = await response.json();
         
-        // Mettez à jour la liste des reviews
+        // update reviews
         if (data && Array.isArray(data)) {
           const reviews = data.reduce((acc, rental) => {
             if (rental.reviews && Array.isArray(rental.reviews)) {
@@ -106,7 +106,6 @@ const [errorMessage, setErrorMessage] = useState(null)
       }
     };
   
-    // Appelez la fonction fetchReviewsByLandlord dans votre useEffect
     fetchReviewsByLandlord();
   }, [landlord]);
 
@@ -131,7 +130,7 @@ const [errorMessage, setErrorMessage] = useState(null)
         rent: 0,
       });
       
-      // Calculez la moyenne en divisant par le nombre total de reviews
+      // Compute average garde
       const numberOfReviews = allReviews.length;
       const averageLocation = sumOfFields.location / numberOfReviews;
       const averageResponsiveness = sumOfFields.responsiveness / numberOfReviews;
