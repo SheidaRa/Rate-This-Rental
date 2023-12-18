@@ -37,7 +37,7 @@
   padding-right: 1em;
 }
 
-#get-in-touch, #map{
+#get-in-touch, #resource{
   padding: 0 1em;
 }
 
@@ -85,7 +85,6 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.5rem 1rem;
   height: 100%;
 }
 
@@ -139,7 +138,7 @@
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 80px;
+    top: 50px;
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
@@ -159,7 +158,6 @@
 
   .nav-links {
     text-align: center;
-    padding: 2rem;
     width: 100%;
     display: table;
   }
