@@ -77,11 +77,11 @@ useEffect(() => {
       </div>
           <div className='row'><p>Did you live here ?</p></div>
           <div className='row'>
-              <span>
+              {lord ? <span>
                   <button className='review-btn' onClick={handleReviewBtnClick}>
                       Write a review
                   </button>
-              </span>
+              </span> : <span>You cannot review a property if no one claimed it</span>}
           </div>
         <WriteReview place_id={place_id} rental_id={rental_id} isVisible={isVisible} setVisibility={setVisibility} resetVisibility={resetVisibility} landlord_id={landlord_id} landlord_name={name}/>
     </>
