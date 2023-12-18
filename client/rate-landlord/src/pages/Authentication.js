@@ -372,7 +372,7 @@ const Authentication = () => {
               </div>
             </div>
 
-            <SignOutButton  onSignOut={signOut} />
+            
         </div>
       </div>
       )}
