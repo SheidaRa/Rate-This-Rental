@@ -63,7 +63,6 @@ body {
   }
 
   .page-icon {
-    margin-left: 1rem;
     font-size: 80px;
   }
 }
@@ -74,19 +73,19 @@ body {
 
 .introduction {
   text-align: center;
-  background-color: var(--color3);
+  /* background-color: var(--color3); */
+  background-color: #fff;
   padding: 1em 0;
+
 }
-/* background change here 
-  height: 50vh;
-  background: url("../public/img.png");
-  background-size: cover;
-*/
+
 .home-search {
   position: relative;
   height: 70vh;
   background: url("../public/img.png");
   background-size: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+
 }
 
 .home-search::before {
@@ -146,10 +145,10 @@ body {
 }
 
 
-.seperator {
+/* .seperator {
   background-color: var(--color1);
   height: 5vh;
-}
+} */
 
 .wip-content {
   padding: 1em 0;

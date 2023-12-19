@@ -1,8 +1,12 @@
 .about-us-page {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   margin-top: 3rem;
-  padding: 20px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius:10px;
+  background:#fff;
+
 }
 
 .about-us-page h2 {

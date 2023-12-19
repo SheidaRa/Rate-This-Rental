@@ -1,18 +1,17 @@
-:root {
-  --color1: #388087;
-  --color2: #BADFE7;
-  --color3: #F6F6F2;
-  --color4: #6FB3B8;
-  --filter-to-color1: invert(41%) sepia(48%) saturate(430%) hue-rotate(137deg) brightness(97%) contrast(94%);
+.siu-container{
+  padding-top: 2rem;
+
 }
 
-/* Common styles */
+
+
 .auth-row {
   display: flex;
   padding-top: 3rem;
   padding-left: 6rem;
   padding-right: 6rem;
   align-items: center;
+
 }
 
 .col-md-4 {

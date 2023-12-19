@@ -1,16 +1,15 @@
-/* Resources.css */
 
-/* Main container styles */
 .resource-page {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     margin-top: 3rem;
-    padding: 20px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius:10px;
+    background:#fff;
 
   }
   
-  /* Heading styles */
   .resource-page h2 {
     color: #388087;
     margin-top: 20px;
@@ -19,18 +18,15 @@
   
   }
   
-  /* Paragraph styles */
   .resource-page p {
     margin-bottom: 15px;
   }
   
-  /* Search input style */
   .resource-page .form-control[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    /* Add more styles as needed */
   }
 
   
