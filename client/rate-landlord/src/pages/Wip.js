@@ -181,7 +181,7 @@ const Wip = () => {
 
     const updateAddress = async () => {
       try {
-        if (rental && !rental.housenumber) {
+        if (rental && rental.housenumber === null) {
           const placeDetailsResponse = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
           const data = await placeDetailsResponse.json();
           setPlaceDetails(data);
