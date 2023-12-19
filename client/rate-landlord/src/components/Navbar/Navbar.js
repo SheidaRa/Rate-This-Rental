@@ -42,7 +42,7 @@ const Navbar = () => {
                     id="get-in-touch"
                     onClick={closeMobileMenu}
                   >
-                    Get in touch !
+                    Contact Us
                   </NavLink>
                 </li>
                 <li className="nav-item">
