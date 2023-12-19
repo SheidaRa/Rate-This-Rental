@@ -38,8 +38,8 @@ This is the source code for Rate Your Landlord web application with React front-
     rails db:migrate
 
     # Setup mailer
-    export SENDMAIL_PASSWORD=[password]
-    export SENDMAIL_USERNAME=[email]
+    export SENDMAIL_PASSWORD=wbqsqjtqlfwdcldf
+    export SENDMAIL_USERNAME=ryourlandlord@gmail.com
     export MAIL_HOST=localhost:3001
 
     # start backend
