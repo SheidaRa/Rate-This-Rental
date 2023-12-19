@@ -14,25 +14,25 @@ This is the source code for Rate Your Landlord web application with React front-
 
 - Install node / npm
   ```terminal
-#npm list
-
-├── @material-ui/core@4.12.4
-├── @testing-library/jest-dom@5.17.0
-├── @testing-library/react@13.4.0
-├── @testing-library/user-event@13.5.0
-├── @ubilabs/google-maps-react-hooks@2.0.2
-├── bootstrap@5.3.2
-├── leaflet@1.9.4
-├── mdb-react-ui-kit@7.0.0
-├── moment@2.29.4
-├── react-bootstrap@2.9.1
-├── react-dom@18.2.0
-├── react-icons@4.12.0
-├── react-leaflet@4.2.1
-├── react-router-dom@6.19.0
-├── react-scripts@5.0.1
-├── react@18.2.0
-└── web-vitals@2.1.4
+    #npm list
+    
+    ├── @material-ui/core@4.12.4
+    ├── @testing-library/jest-dom@5.17.0
+    ├── @testing-library/react@13.4.0
+    ├── @testing-library/user-event@13.5.0
+    ├── @ubilabs/google-maps-react-hooks@2.0.2
+    ├── bootstrap@5.3.2
+    ├── leaflet@1.9.4
+    ├── mdb-react-ui-kit@7.0.0
+    ├── moment@2.29.4
+    ├── react-bootstrap@2.9.1
+    ├── react-dom@18.2.0
+    ├── react-icons@4.12.0
+    ├── react-leaflet@4.2.1
+    ├── react-router-dom@6.19.0
+    ├── react-scripts@5.0.1
+    ├── react@18.2.0
+    └── web-vitals@2.1.4
 - Install PostgreSQL 16.1, run a PostgreSQL server and point to port 5432
 - Install Ruby 3.2.2 and Rails 7.1.2
 - In the client directory:
