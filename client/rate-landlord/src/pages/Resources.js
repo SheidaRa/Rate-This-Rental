@@ -7,7 +7,7 @@ const ResourcePage = () => {
   // Sample data
   const resources = [
     {
-      name: "MASSACHUSETTS UNION OF PUBLIC HOUSING TENANTS",
+      name: "MASSACHUSETTS UNION OF PUBLIC HOUSING",
       location: "DORCHESTER, MASSACHUSETTS, US",
       address: "784 Washington St, Suite 504",
       phoneNumber: "617 825 9750",
@@ -15,19 +15,21 @@ const ResourcePage = () => {
         "Mass Union is a nonprofit run by tenants for tenants. Our mission is to preserve and improve public housing across the state. We are a union of over 60 Local Tenant Organizations and we are growing fast.",
     },
     {
-        name: "MASSACHUSETTS UNION OF PUBLIC HOUSING TENANTS",
-        location: "DORCHESTER, MASSACHUSETTS, US",
-        address: "784 Washington St, Suite 504",
-        phoneNumber: "617 825 9750",
+        name: "TEXAS TENANTS UNION",
+        location: "DENTON, TEXAS, US",
+        address: "74 DENTON St, Suite 04",
+        phoneNumber: "687 825 0750",
         description:
-          "Mass Union is a nonprofit run by tenants for tenants. Our mission is to preserve and improve public housing across the state. We are a union of over 60 Local Tenant Organizations and we are growing fast.",
-      },    {
-        name: "MASSACHUSETTS UNION OF PUBLIC HOUSING TENANTS",
-        location: "DORCHESTER, MASSACHUSETTS, US",
-        address: "784 Washington St, Suite 504",
-        phoneNumber: "617 825 9750",
+          "The Texas Tenants’ Union is a nonprofit tenants’ rights organization. We empower tenants through education and organizing to protect their rights, preserve their homes, improve their living conditions and enhance the quality of life in their communities.",
+      },    
+      
+      {
+        name: "TENANTS PROTECTION ASSOCIATION",
+        location: " AUCKLAND, AUCKLAND, NZ",
+        address: "79 Grand St, Inite 54",
+        phoneNumber: "917 827 9870",
         description:
-          "Mass Union is a nonprofit run by tenants for tenants. Our mission is to preserve and improve public housing across the state. We are a union of over 60 Local Tenant Organizations and we are growing fast.",
+          "Our main aim is to support and promote the welfare and interests of tenants. To act on their behalf in disputes with landlords; to inform them of their rights and obligations under the Residential Tenancies Act and to assist those who take disputes to the Tenancy Tribunal.",
       },
     
     ];

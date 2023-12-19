@@ -13,6 +13,7 @@
   color: #388087;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-weight:bold;
 
 }
 
@@ -31,6 +32,10 @@
   margin-bottom: 30px;
   margin-top: 20px;
 
+}
+
+.faq strong{
+  font-weight:bold;
 }
 
 /* Styling for sections */
