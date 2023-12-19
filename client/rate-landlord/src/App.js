@@ -11,6 +11,7 @@ import Wip from './pages/Wip';
 import Authentication from './pages/Authentication';
 import LandlordProfile from './pages/LandlordProfile';
 import Rental from './components/Property/Rental';
+import Footer from './components/Footer/Footer';
 
 import "./components/Searchbar/SearchBar";
 import "./components/Searchbar/SearchResultsList.css";
@@ -31,17 +32,16 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contacts />} />
           <Route exact path="/resources" element={<ResourcePage />} />
-
           <Route exact path="/wip/:id" element={<Wip />} />
           <Route exact path="/signin" element={<Authentication />} />
           <Route exact path="/llp/:id" element={<LandlordProfile/>} />
           <Route exact path="/Up" element={<UserProfile/>} />
-
           <Route path="/rentals/:placeId" element={<Rental />} />
 
         </Routes>
       </Router>
 
+      <Footer/>
 
 
 
