@@ -21,7 +21,7 @@ class Api::V1::RentalsController < ApplicationController
     place_id = params[:place_id]
 
     # Find existing rental
-    @rental = Rental.find_by(place_id: params[:place_id])
+    @rental = Rental.find_by(place_id: place_id)
 
     if @rental
       # Show existing rental
@@ -38,7 +38,7 @@ class Api::V1::RentalsController < ApplicationController
    # GET /api/v1/rentals/:landlord_id/by_landlord
    def by_landlord
     @rentals = Rental.where(landlord: params[:place_id])
-  
+
     if @rentals.any?
       render json: @rentals, include: [:reviews], status: :ok
     else
@@ -49,7 +49,7 @@ class Api::V1::RentalsController < ApplicationController
     # GET /api/v1/rentals/:id/by_id
     def by_id
       @rental = Rental.find_by(id: params[:place_id])
-      
+
       if @rental
         render json: @rental, status: :ok
       else
@@ -95,7 +95,7 @@ class Api::V1::RentalsController < ApplicationController
       def update_address
         place_id = params[:place_id]
         @rental = Rental.find_by(place_id: place_id)
-      
+
         if @rental
           # update rental fields
           @rental.housenumber = params.dig(:rental, :housenumber)
@@ -106,8 +106,8 @@ class Api::V1::RentalsController < ApplicationController
           @rental.lon = params.dig(:rental, :lon)
           @rental.lat = params.dig(:rental, :lat)
           @rental.country_code = params.dig(:rental, :country_code)
-      
-          # save update 
+
+          # save update
           if @rental.save
             render json: @rental, status: :ok
           else
