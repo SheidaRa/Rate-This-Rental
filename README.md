@@ -71,7 +71,7 @@ This is the source code for Rate Your Landlord web application with React front-
     # visit localhost:3001 on browser
     ```
 ### Developer notes
-- There is stills some race conditions error in rendering the app. Try reload the page if encounter such errors.
+- There is stills some race conditions error in rendering the app. Try reload the page if encounter such errors or wait for the page to reload itself.
 - Please confirm the email in your inbox after you sign up to make your account work
 - The search bar is slow, please be patient.
 
