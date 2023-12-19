@@ -9,7 +9,7 @@ function Contacts() {
           <div className="row">
             <div className="col-lg-6">
               <div className="card-shadow">
-                <img src="/photos/other/contact.png" className="contact-img" alt=" Letter pockets" />
+                <img src="/photos/other/contact.png" className="contact-img" alt=" Letter pockets Image" />
               </div>
             </div>
             <div className="col-lg-6">

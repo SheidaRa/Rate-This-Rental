@@ -37,7 +37,6 @@ function App() {
           <Route exact path="/llp/:id" element={<LandlordProfile/>} />
           <Route exact path="/Up" element={<UserProfile/>} />
           <Route path="/rentals/:placeId" element={<Rental />} />
-
         </Routes>
       </Router>
 

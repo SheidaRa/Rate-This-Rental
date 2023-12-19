@@ -84,17 +84,18 @@ nav a.navbar-brand, .navbar-nav a.nav-link, .navbar-nav a.nav-link.active {
   }
 
   input {
-    font-size: 1rem; 
+    font-size: 0.7rem; 
   }
 
   .home-search input {
     margin-top: 20vh; 
+    
   }
 
   .home-search button {
     bottom: 4px; 
     right: 1%;
-    font-size: 16px; 
+    font-size: 10px; 
   }
 }
 
@@ -124,14 +125,14 @@ nav a.navbar-brand, .navbar-nav a.nav-link, .navbar-nav a.nav-link.active {
   }
 
   input {
-    font-size: 0.9rem; 
+    font-size: 0.2rem; 
   }
   .home-search input {
     margin-top: 30vh;
   }
 
   .home-search button {
-    bottom: 2px; 
+    bottom: 10px; 
     right: 2%; 
     font-size: 14px; 
   }

@@ -38,30 +38,28 @@ element.style {
 
   }
 
-/* For smaller screens */
 @media screen and (max-width: 768px) {
     .home-search {
-      height: 50vh; /* Adjust the height for smaller screens */
+      height: 50vh; 
     }
   
     .introduction {
-      margin-bottom: 2rem; /* Adjust margin for the introduction section */
     }
   
     .introduction h2 {
-      margin-top: 2rem; /* Adjust margin top for the h2 element */
-      margin-bottom: 3rem; /* Adjust margin bottom for the h2 element */
+      margin-top: 2rem; 
+      margin-bottom: 3rem; 
       font-weight: bold;
     }
   
     .sign-up-text {
-      margin-bottom: 1rem; /* Adjust margin bottom for the sign-up text */
+      margin-bottom: 1rem; 
       font-weight: bold;
     }
   
     .why-container {
-      display: block; /* Change to block for smaller screens */
-      margin-bottom: 4rem; /* Adjust margin bottom for the why-container */
+      display: block; 
+      margin-bottom: 4rem; 
     }
   }
   

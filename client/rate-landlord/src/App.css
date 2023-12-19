@@ -189,14 +189,6 @@ body {
   font-weight: 700;
 }
 
-.footer {
-  text-align: center;
-  margin-top: 4em;
-  margin-bottom: 4em;
-}
-
-
-
 /* Css for devices with a width inferior to 768px, so including mobile phones */
 @media (max-width: 768px) {
 

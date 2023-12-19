@@ -38,11 +38,11 @@ const Home = () => {
       <div className='why-container'>
         
         <div className='col-md-4 offset-md-1'>
-          <InfoCard title={'Renters Impowerment'} info={'We believe in the power of community. Your reviews and ratings help renters make informed choices and encourage landlords to excel in their service. Together, we are creating a transparent  environment that strengthens our community.'} image={'/photos/icons/why1.png'} />
+          <InfoCard title={'Renters Impowerment'} info={'We believe in the power of community. Your reviews and ratings help renters make informed choices and encourage landlords to excel in their service. Together, we are creating a transparent  environment that strengthens our community.'} image={'/photos/icons/why1.png'} altText={'Solidarity Figure'}/>
         </div>
         
         <div className='col-md-4 offset-md-2'>
-        <InfoCard title={'Stay Annonymous'} info={'Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your choice.'} image={'/photos/icons/why2.png'} />
+        <InfoCard title={'Stay Annonymous'} info={'Rate Your Landlord values your privacy, offering the option to submit reviews anonymously, ensuring you can candidly share your experiences without revealing your identity. Your voice, your choice.'} image={'/photos/icons/why2.png'} altText={'Stay Annonymous Figure'}/>
         </div>
 
         {/* <div className='col-md-3 offset-md-1'>
