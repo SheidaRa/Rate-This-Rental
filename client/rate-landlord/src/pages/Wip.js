@@ -38,14 +38,14 @@ const Wip = () => {
         let totalResponsiveness = 0;
         let totalMaintenance = 0;
         let totalRent = 0;
-    
+
         reviewList.forEach((review) => {
           totalLocation += review.location;
           totalResponsiveness += review.responsiveness;
           totalMaintenance += review.maintenance;
           totalRent += review.rent;
         });
-    
+
         const averageLocation = totalLocation / reviewList.length;
         const averageResponsiveness = totalResponsiveness / reviewList.length;
         const averageMaintenance = totalMaintenance / reviewList.length;
@@ -56,10 +56,10 @@ const Wip = () => {
         const roundedAverageResponsiveness = Math.round(averageResponsiveness);
         const roundedAverageRent = Math.round(averageRent);
 
-        setLocation(roundedAverageLocation);  
-        setResponsiveness(roundedAverageResponsiveness); 
-        setMaintenance(roundedAverageMaintenance); 
-        setRent(roundedAverageRent); 
+        setLocation(roundedAverageLocation);
+        setResponsiveness(roundedAverageResponsiveness);
+        setMaintenance(roundedAverageMaintenance);
+        setRent(roundedAverageRent);
         setOverall(( Number(averageLocation + averageMaintenance + averageResponsiveness + averageRent) / 4).toFixed(2));
       }
       else {
@@ -70,7 +70,7 @@ const Wip = () => {
         setOverall(0);
       }
     }, [reviewList]);
-    
+
     useEffect(() => {
       const access_token = localStorage.getItem('access_token');
       const fetchNearbyRentals = async () => {
@@ -93,10 +93,10 @@ const Wip = () => {
           setIsLoading(false);
         }
       };
-    
+
       fetchNearbyRentals();
-    }, [placeId]); 
-    
+    }, [placeId]);
+
 
     useEffect(() => {
         const fetchPlaceDetails = async () => {
@@ -174,10 +174,10 @@ const Wip = () => {
 
   useEffect(() => {
     const access_token = localStorage.getItem('access_token');
-  
+
     const updateAddress = async () => {
       try {
-        if (rental && !rental.housenumber) {
+        if (rental && rental.housenumber === null) {
           const response = await fetch(`${API_URL}/api/v1/rentals/${placeId}/update_address`, {
             method: 'PUT',
             headers: {
@@ -188,7 +188,7 @@ const Wip = () => {
               rental: {
                 housenumber: placeDetails.addresstags.housenumber,
                 street: placeDetails.addresstags.street,
-                city: placeDetails.addresstags.city,  
+                city: placeDetails.addresstags.city,
                 postcode: placeDetails.addresstags.postcode,
                 state: placeDetails.addresstags.state,
                 country_code: placeDetails.country_code.toUpperCase(),
@@ -197,7 +197,7 @@ const Wip = () => {
               },
             }),
           });
-  
+
           if (response.ok) {
             console.log('Rental updated');
             window.location.reload();
@@ -211,10 +211,10 @@ const Wip = () => {
         setErrorMessage("Error occured updating rental");
       }
     };
-  
+
     updateAddress();
   }, [rental, placeId]);
-  
+
 
   if (!placeDetails) {
     return <p>Loading place details...</p>;
@@ -249,7 +249,7 @@ const resourceOwnerString = localStorage.getItem('resource_owner');
                     <div className='col-md-4'>
                             <p>Other nearby properties</p>
                         <div className='row'>
-                          {nearby.length > 0 && 
+                          {nearby.length > 0 &&
                             nearby.map((nearby_rental, index) => (
                               <div key={index} className='col-md-12 col-6'>
                                 <Nearby image={`/photos/nearby/${index+1}.png`} housenumber={nearby_rental.housenumber} street={nearby_rental.street} place_id={nearby_rental.place_id} />
