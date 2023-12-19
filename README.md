@@ -21,7 +21,8 @@ This is the source code for Rate Your Landlord web application with React front-
     cd rate-landlord
     
     # install node packages
-    npm ....
+    *npm install --force is suggested*
+    
     npm install @material-ui/core@4.12.4
     npm install @testing-library/jest-dom@5.17.0
     npm install @testing-library/react@13.4.0
