@@ -32,6 +32,21 @@ const Wip = () => {
 
     const [overall, setOverall] = useState(0)
 
+    // useEffect(() => {
+    //   const fetchPlaceDetails = async () => {
+    //     try {
+    //       console.log(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
+    //       const response = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
+    //       const data = await response.json();
+    //       setPlaceDetails(data);
+    //     } catch (error) {
+    //       console.error('Error fetching place details:', error);
+    //     }
+    //   };
+
+    //   fetchPlaceDetails();
+    // }, [placeId]);
+
     useEffect(() => {
       if (reviewList.length > 0) {
         let totalLocation = 0;
@@ -97,28 +112,6 @@ const Wip = () => {
       fetchNearbyRentals();
     }, [placeId]);
 
-
-    useEffect(() => {
-        const fetchPlaceDetails = async () => {
-          try {
-            console.log(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
-            const response = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
-            const data = await response.json();
-            setPlaceDetails(data);
-          } catch (error) {
-            console.error('Error fetching place details:', error);
-          }
-        };
-
-        fetchPlaceDetails();
-      }, [placeId]);
-
-    useEffect(() => {
-        if (placeDetails) {
-          setSelectPosition(placeDetails);
-        }
-      }, [placeDetails]);
-
     useEffect(() => {
         const access_token = localStorage.getItem('access_token')
         const fetchRental = async () => {
@@ -158,7 +151,7 @@ const Wip = () => {
               },
             });
             const data = await response.json();
-            await setReviewList(data);
+            setReviewList(data);
             console.log(reviewList);
           } catch (error) {
               console.error(error);
@@ -175,9 +168,25 @@ const Wip = () => {
   useEffect(() => {
     const access_token = localStorage.getItem('access_token');
 
+    const fetchPlaceDetails = async () => {
+      try {
+        console.log(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
+        const response = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
+        const data = await response.json();
+        setPlaceDetails(data);
+      } catch (error) {
+        console.error('Error fetching place details:', error);
+      }
+    };
+
     const updateAddress = async () => {
       try {
         if (rental && rental.housenumber === null) {
+          const placeDetailsResponse = await fetch(`https://nominatim.openstreetmap.org/details.php?place_id=${placeId}&format=json`);
+          const data = await placeDetailsResponse.json();
+          setPlaceDetails(data);
+          window.location.reload();
+
           const response = await fetch(`${API_URL}/api/v1/rentals/${placeId}/update_address`, {
             method: 'PUT',
             headers: {
@@ -186,22 +195,26 @@ const Wip = () => {
             },
             body: JSON.stringify({
               rental: {
-                housenumber: placeDetails.addresstags.housenumber,
-                street: placeDetails.addresstags.street,
-                city: placeDetails.addresstags.city,
-                postcode: placeDetails.addresstags.postcode,
-                state: placeDetails.addresstags.state,
-                country_code: placeDetails.country_code.toUpperCase(),
-                lon: placeDetails.geometry.coordinates[1],
-                lat: placeDetails.geometry.coordinates[0]
+                housenumber: data.addresstags.housenumber,
+                street: data.addresstags.street,
+                city: data.addresstags.city,
+                postcode: data.addresstags.postcode,
+                state: data.addresstags.state,
+                country_code: data.country_code.toUpperCase(),
+                lon: data.geometry.coordinates[1],
+                lat: data.geometry.coordinates[0]
               },
             }),
           });
 
+          if (placeDetailsResponse.ok) {
+            console.log('Place details fetched');
+          } else {
+            console.error('Error updating place details');
+          }
+
           if (response.ok) {
             console.log('Rental updated');
-            window.location.reload();
-
           } else {
             console.error('Error updating rental');
           }
@@ -211,10 +224,15 @@ const Wip = () => {
         setErrorMessage("Error occured updating rental");
       }
     };
-
-    updateAddress();
+    // updateAddress();
+    fetchPlaceDetails().then(updateAddress());
   }, [rental, placeId]);
 
+  useEffect(() => {
+    if (placeDetails) {
+      setSelectPosition(placeDetails);
+    }
+  }, [placeDetails]);
 
   if (!placeDetails) {
     return <p>Loading place details...</p>;
