@@ -74,7 +74,7 @@ const Navbar = () => {
                   alt="Your Logo"
                   className="logo-img"
                 />
-                Rate This Rental
+                Rate Your Landlord
               </Link>
             </div>
             <div className="col-md-4 col-3 sign-in">
