@@ -48,13 +48,14 @@ nav a.navbar-brand, .navbar-nav a.nav-link, .navbar-nav a.nav-link.active {
 
 .home-form {
   position: relative;
+
 }
 
 .home-search input{
   width: 100%;
   padding: 1em;
   border-radius: 30px;
-  background-color: var(--color2);
+  background-color: var(--color3);
   margin-top: 40vh;
   border: none;
 }
@@ -63,7 +64,7 @@ nav a.navbar-brand, .navbar-nav a.nav-link, .navbar-nav a.nav-link.active {
   position: absolute;
   bottom: 8px;
   right: 3%;
-  color: var(--color2);
+  color: var(--color3);
   background-color: var(--color1);
   border-radius: 30px;
   border: none;

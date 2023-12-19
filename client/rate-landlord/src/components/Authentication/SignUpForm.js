@@ -59,18 +59,20 @@ const SignUpForm = ({ onSignUp }) => {
   };
 
   return (
-      <div className="row">
-      <div className='col-lg-4 offset-lg-1 col-md-5'>
-          <h1 >
-            We are a community
-          </h1>
-          <p className='auth-p'>
-            We prioritize your privacy. Your reviews will always remain anonymous,
-            ensuring your thoughts and feedback are shared confidently.
-            Join us today and share your experiences without any worries
-            about your identity being revealed.
-          </p>
-        </div>
+    <div className='siu-container'>
+
+    <div className="row">
+    <div className='col-lg-4 offset-lg-1 col-md-5 '>
+        <h1 >
+          We are a community
+        </h1>
+        <p className='auth-p'>
+          We prioritize your privacy. Your reviews will always remain anonymous,
+          ensuring your thoughts and feedback are shared confidently.
+          Join us today and share your experiences without any worries
+          about your identity being revealed.
+        </p>
+      </div>
 
         <div className='col-lg-4 offset-lg-2 col-md-5 offset-md-2'>
           <form id="sign_up_form" onSubmit={handleSignUp} className="my-5">
@@ -115,6 +117,8 @@ const SignUpForm = ({ onSignUp }) => {
           </form>
         </div>
         </div>
+        </div>
+
   );
 };
 

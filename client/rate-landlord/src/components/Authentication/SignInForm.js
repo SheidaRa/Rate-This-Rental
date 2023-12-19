@@ -47,8 +47,10 @@ const SignInForm = ({ onSignIn }) => {
   };
 
   return (
+    <div className='siu-container'>
+
     <div className="row">
-    <div className='col-lg-4 offset-lg-1 col-md-5 '>
+    <div className='col-lg-4 offset-lg-1 col-md-5 siu-container'>
         <h1 >
           We are a community
         </h1>
@@ -88,6 +90,8 @@ const SignInForm = ({ onSignIn }) => {
       </form>
       </div>
     </div>
+    </div>
+
   );
 };
 

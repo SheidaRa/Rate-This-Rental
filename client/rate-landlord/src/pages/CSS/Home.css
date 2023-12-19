@@ -8,13 +8,14 @@ element.style {
 
   .introduction {
     margin-bottom: 3rem;
+    
   }
   
   .introduction h2 {
     margin-top: 3rem;
-
     margin-bottom: 5rem;
     font-weight: bold;
+    
 
     
   }
@@ -22,12 +23,18 @@ element.style {
   .sign-up-text {
     margin-bottom: 2rem;
     font-weight: bold;
+    
 
   }
-  
+
   .why-container {
     display:flex;
     margin-bottom: 6rem;
+    /* background-color: var(--color3); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius:10px;
+    padding: 35px;
+    align-items: center;
 
   }
 
