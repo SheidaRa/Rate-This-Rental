@@ -3,6 +3,9 @@
 ## Description
 This is the source code for Rate Your Landlord web application with React front-end and Rails back-end.
 
+"Rate Your Landlord" website, stands as a community-driven platform designed to empower tenants in sharing their experiences with landlords. Through this website, users can contribute reviews anonymously, offering valuable insights into landlord-tenant interactions. By enabling individuals to rate their landlords, we aim to foster transparency and accountability within the renting ecosystem. This platform serves as atool, empowering the community by providing a voice to tenants, guiding others in making informed decisions about their housing arrangements, and ultimately fostering better landlord-tenant relationships.
+
+
 ## Tech Stack
 - ReactJS
 - Ruby on Rails
