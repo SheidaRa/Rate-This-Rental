@@ -71,7 +71,7 @@ This is the source code for Rate Your Landlord web application with React front-
     ```
 
     ## Credits
-      All images and figures are obtained from the Canva images and graphics library
-      ChatGPT was used to help with adding comments to the code or formatting the order  (and centering divs ofc :) )
+  - All images and figures are obtained from the Canva images and graphics library
+  - ChatGPT was used to help with adding comments to the code or formatting the order  (and centering divs ofc :) )
   
   
