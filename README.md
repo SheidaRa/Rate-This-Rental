@@ -19,10 +19,10 @@ This is the source code for Rate Your Landlord web application with React front-
     ```terminal
     # Go to rate-landlord
     cd rate-landlord
-    
+
     # install node packages
     *npm install --force is suggested*
-    
+
     npm install @material-ui/core@4.12.4
     npm install @testing-library/jest-dom@5.17.0
     npm install @testing-library/react@13.4.0
@@ -54,7 +54,7 @@ This is the source code for Rate Your Landlord web application with React front-
 
     # Install gem dependencies
     bundle
-    
+
     # Create Postgres DB and migrate the schema
     rails db:create
     rails db:migrate
@@ -66,13 +66,17 @@ This is the source code for Rate Your Landlord web application with React front-
 
     # start backend
     rails s
-    
+
 
     # visit localhost:3001 on browser
     ```
+### Developer notes
+- There is stills some race conditions error in rendering the app. Try reload the page if encounter such errors.
+- Please confirm the email in your inbox after you sign up to make your account work
+- The search bar is slow, please be patient.
 
     ## Credits
   - All images and figures are obtained from the Canva images and graphics library
   - ChatGPT was used to help with adding comments to the code or formatting the order  (and centering divs ofc :) )
-  
-  
+
+
