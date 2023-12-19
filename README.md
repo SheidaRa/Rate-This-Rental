@@ -71,9 +71,10 @@ This is the source code for Rate Your Landlord web application with React front-
     # visit localhost:3001 on browser
     ```
 ### Developer notes
-- There is stills some race conditions error in rendering the app. Try reload the page if encounter such errors or wait for the page to reload itself.
+- There is still some race conditions error in rendering the app. Try reloading the page if encounter such errors or wait for the page to reload itself.
 - Please confirm the email in your inbox after you sign up to make your account work
 - The search bar is slow, please be patient.
+-  For this version you need to choose the option "become a landlord" to be able to open the submitting a review option.
 
     ## Credits
   - All images and figures are obtained from the Canva images and graphics library
