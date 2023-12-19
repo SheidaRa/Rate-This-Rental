@@ -10,7 +10,7 @@ This is the source code for Rate Your Landlord web application with React front-
 # Local development
 
 - Install node / npm
-- Install PostgreSQL 16.1
+- Install PostgreSQL 16.1, run a PostgreSQL server and point to port 5432
 - Install Ruby 3.2.2 and Rails 7.1.2
 - In the client directory:
     ```terminal
