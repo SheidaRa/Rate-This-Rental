@@ -27,7 +27,7 @@ This is the source code for Rate Your Landlord web application with React front-
     ```
 - In the server directory:
     ```terminal
-    # Go to rate-landlord
+    # Go to rate-landlord-api
     cd rate-landlord-api
 
     # Install gem dependencies
