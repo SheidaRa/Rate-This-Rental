@@ -1,4 +1,4 @@
-# Rate Your Landlord
+# Rate This Rental
 
 ## Description
 This is the source code for Rate Your Landlord web application with React front-end and Rails back-end.
