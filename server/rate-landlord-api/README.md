@@ -1,5 +1,5 @@
 # Rate Landlord API
-![Rate-This-Rental-Walkthrough](https://imgur.com/a/gnQrjDq)
+![](https://github.com/SheidaRa/Rate-This-Rental/blob/main/RateYourLandlord%202024-08-04%20at%2016.33.14.gif)
 
 ## Description
 This is the backend API for the Rate Landlord application. It provides endpoints for managing landlord ratings, reviews, and related data.
