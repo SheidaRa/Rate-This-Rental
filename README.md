@@ -10,6 +10,11 @@ This is the source code for Rate Your Landlord web application with React front-
 - ReactJS
 - Ruby on Rails
 
+
+## Walkthrough
+![](https://github.com/SheidaRa/Rate-This-Rental/blob/main/RateYourLandlord%202024-08-04%20at%2016.33.14.gif)
+
+
 # Contributing
 ## Local development
 
