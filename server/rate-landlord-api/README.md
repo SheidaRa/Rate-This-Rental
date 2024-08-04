@@ -1,24 +1,33 @@
-# README
+# Rate Landlord API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+This is the backend API for the Rate Landlord application. It provides endpoints for managing landlord ratings, reviews, and related data.
 
-Things you may want to cover:
+## Local development
 
-* Ruby version
+- Install PostgreSQL 16.1, run a PostgreSQL server and point to port 5432
+- Install Ruby 3.2.2 and Rails 7.1.2
 
-* System dependencies
+- In the server directory:
+    ```terminal
+    # Go to rate-landlord-api
+    cd rate-landlord-api
 
-* Configuration
+    # Install gem dependencies
+    bundle
 
-* Database creation
+    # Create Postgres DB and migrate the schema
+    rails db:create
+    rails db:migrate
 
-* Database initialization
+    # Setup mailer
+    export SENDMAIL_PASSWORD=wbqsqjtqlfwdcldf
+    export SENDMAIL_USERNAME=ryourlandlord@gmail.com
+    export MAIL_HOST=localhost:3001
 
-* How to run the test suite
+    # start backend
+    rails s
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+    # visit localhost:3001 on browser
+    ```
